@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Sana Raja | Portfolio – Data & Operations Leader</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #44a27a;
+            --primary-light: #6fd3a5;
+            --bg: #071b14;
+
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-strong: rgba(255, 255, 255, 0.12);
+
+            --border: rgba(255, 255, 255, 0.15);
+
+            --text: #eafff5;
+            --muted: #b8e8d5;
+
+            --radius: 22px;
+        }
+
+        /* BACKGROUND */
+        body {
+            font-family: Inter, system-ui;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 20%, #0d2e23, transparent),
+                radial-gradient(circle at 90% 0%, #134a36, transparent),
+                var(--bg);
+            padding: 30px;
+            min-height: 100vh;
+        }
+
+        /* LAYOUT */
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            gap: 28px;
+        }
+
+        /* GLASS BASE */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+        }
+
+
+
+        /* NEW SIDEBAR  */
+        #sidebar {
+            width: 320px;
+            padding: 30px 25px;
+            position: sticky;
+            top: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* avatar card look */
+        .avatar-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px;
+            border-radius: 50%;
+            margin-bottom: 18px;
+        }
+
+        /* square image*/
+        #profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: none;
+        }
+
+        /* name */
+        #name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+            background: linear-gradient(45deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            color: transparent
+        }
+
+        /* title badge */
+        #title-badge {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 6px 16px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+
+        /* divider */
+        .divider {
+            width: 100%;
+            height: 1px;
+            margin: 20px 0;
+        }
+
+        /* contact list */
+        .contact-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* item */
+        .contact-item {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        /* ICON BOX (important) */
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+
+            transition: .3s;
+        }
+
+
+        .contact-item:hover .icon-box {
+            background: var(--primary);
+            color: #05231a;
+        }
+
+        /* labels */
+        .contact-label {
+            font-size: 0.65rem;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+
+        #resume-btn {
+            display: block;
+            margin-top: 22px;
+            text-align: center;
+            padding: 12px;
+            border-radius: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            color: #05231a;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        #resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(68, 162, 122, 0.4);
+        }
+
+        /* socials */
+        .social-links {
+            margin: 25px 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            transition: .3s;
+            color: var(--muted);
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* resume button */
+        #resume-btn {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+
+        /* MAIN */
+        #main-content {
+            flex: 1;
+            padding: 32px;
+        }
+
+        /* NAV */
+        .navbar {
+            display: flex;
+            gap: 26px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 28px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .nav-btn.active-tab {
+            color: #fff;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* SECTIONS */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            background: linear-gradient(45deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* STATS */
+        .stats-grid {
+            display: flex;
+            gap: 14px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px;
+            border-radius: 18px;
+            background: var(--glass-strong);
+        }
+
+        .stat-box .number {
+            font-size: 1.6rem;
+            color: var(--primary);
+        }
+
+        /* SKILLS */
+        .skills-heading {
+            margin-top: 30px;
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* .skill-tag{
+        padding:8px 14px;
+        border-radius:20px;
+        background:var(--glass-strong);
+        font-size:0.85rem;
+    } */
+
+        /* new SKILLS */
+        .skill-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: .3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .skill-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 60px;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        /* timeline icon */
+        .timeline-icon {
+            position: absolute;
+            left: -60px;
+            top: 22px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: .3s;
+        }
+
+        /* entry card */
+        .entry {
+            position: relative;
+            background: var(--glass);
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            transition: .3s;
+        }
+
+        .entry:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .entry:hover .timeline-icon {
+            background: var(--primary);
+            color: #05231a;
+        }
+
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .project-box {
+            background: var(--glass);
+            padding: 16px;
+            border-radius: 18px;
+            transition: .3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-6px);
+            border: 1px solid var(--primary);
+        }
+
+        .project-thumb {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* CONTACT */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-card {
+            padding: 15px;
+            border-radius: 16px;
+            background: var(--glass-strong);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            padding: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .tool-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        /* FORM */
+        .form-input {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 30px;
+            border: none;
+            background: var(--primary);
+            color: #05231a;
+            font-weight: bold;
+        }
+
+        /* MODAL */
+        #project-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 900px;
+            background: #0c2a1f;
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        /* FIX: missing glass-card */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        /* CLOSE BUTTON (modal) */
+        .close-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .25s;
+        }
+
+        .close-btn:hover {
+            background: var(--primary);
+            color: #05231a;
+            transform: rotate(90deg);
+        }
+
+        /* FULLSCREEN BUTTON */
+        .fullscreen-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: .25s;
+        }
+
+        .fullscreen-btn:hover {
+            background: var(--primary);
+            color: #05231a;
+        }
+
+        /* MODAL HEADER */
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        /* MODAL BODY */
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* MODAL GRID */
+        .modal-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* IMAGE CONTAINER */
+        .modal-image-container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 10px;
+            border-radius: 16px;
+        }
+
+        /* TOOL BADGES */
+        .tool-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: var(--glass-strong);
+            font-size: 0.75rem;
+            margin: 4px;
+        }
+
+        /* CONTACT CARD (FIXED PREMIUM LOOK) */
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            border-radius: 18px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ICON BOX LARGE */
+        .icon-box-large {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* CONTACT FORM CARD */
+        .contact-form-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        /* FORM TITLE */
+        .form-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* CAROUSEL */
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: #05231a;
+        }
+
+        /* VIEWER CLOSE (fullscreen) */
+        .viewer-close {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .viewer-close:hover {
+            background: var(--primary);
+            color: #05231a;
+        }
+
+        /* FIX: btn-link color (was undefined var) */
+        .btn-link {
+            color: var(--primary);
+        }
+
+        /* FIX TIMELINE LAYOUT */
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .entry-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* COMPANY NAME */
+        .entry-company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* DATE BADGE */
+        .entry-date {
+            background: rgba(152, 152, 152, 0.1);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-family: monospace;
+            white-space: nowrap;
+        }
+
+
+        /* FIX SIDEBAR HEIGHT CONSISTENCY */
+        #sidebar {
+            width: 320px;
+            padding: 28px;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+        }
+
+
+        /* MAIN HEIGHT MATCH */
+        .container {
+            align-items: flex-start;
+        }
+
+
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        function showPage(id, btnElement) {
+            document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+            document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active-tab"));
+            document.getElementById(id).classList.add("active");
+            if (btnElement) btnElement.classList.add("active-tab");
+        }
+
+        /* =========================
+           DATA (NOW MANAGEABLE 🔥)
+        ========================= */
+
+        const aboutData = {
+                description: "Results-driven professional with expertise in team leadership, operations management, project coordination, financial management, quality and auditing. Adept at optimizing workflows, ensuring compliance, and driving efficiency in both manufacturing and financial environments. I'm now seeking a new, challenging role that will allow me to leverage and expand upon these skills, offering opportunities for both personal and professional growth. I am excited to contribute my expertise in a dynamic environment where I can make a meaningful impact.",
+                stats: [
+                    { number: "14+", label: "Years Exp." },
+                    { number: "20+", label: "Dashboards" },
+                    { number: "40+", label: "Team Lead" },
+                    { number: "ISO/Lean", label: "Six Sigma" }
+                ],
+                skillSections: [
+                    {
+                        heading: "Top Skills",
+                        tags: ["Power BI Developer", "Project Management", "Finance & Audit", "Team Leadership", "Data Analyst", "Change Management", "Budgeting"]
+                    },
+                    {
+                        heading: "Services I Offer",
+                        tags: ["Financial Accounting", "Power BI Consulting", "Lean Manufacturing"]
+                    },
+                    {
+                        heading: "Tools Expertise",
+                        tagsWithIcons: [
+                            { name: "Azure", icon: "extracted_images/image_azure.png" },
+                            { name: "Fabric", icon: "extracted_images/image_fabric.png" },
+                            { name: "SSMS", icon: "extracted_images/image_ssms.png" },
+                            { name: "MySQL", icon: "extracted_images/image_mysql.png" },
+                            { name: "Jupyter Notebook", icon: "extracted_images/image_jupyter.png" },
+                            { name: "Power Automate", icon: "extracted_images/image_automate.png" },
+                            { name: "Power BI", icon: "extracted_images/image_pbi.png" },
+                            { name: "Primavera", icon: "extracted_images/image_p6.png" },
+                            { name: "Hexagon Smartplant", icon: "extracted_images/image_hexagon.png" },
+                            { name: "Navisworks", icon: "extracted_images/image_naviswork.png" },
+                            { name: "Postman", icon: "extracted_images/image_postman.png" },
+                            { name: "Jira", icon: "extracted_images/image_jira.png" },
+                            { name: "SAP", icon: "extracted_images/image_sap.png" },
+                            { name: "Acconex", icon: "extracted_images/image_acconex.png" }
+                        ]
+                    },
+                    {
+                        heading: "Data Engineering",
+                        tags: ["SQL", "Python", "ETL", "Advance Excel - VBA", "DAX", "Power Query", "Workflow Automation", "Dashboard Architecture & Visualization"]
+                    },
+                    {
+                        heading: "Project / Workflow",
+                        tags: ["Forecasting and Predictive Analysis", "Data Modeling", "Dashboard Development", "Reporting and KPI Tracking", "Agile and Lean Methodologies", "AWP - Advance Work Package", "Workface Planning", "Work Package Owner (WPO)"]
+                    },
+                    {
+                        heading: "Soft Skill",
+                        tags: ["Analytical Thinking", "Problem-Solving", "Attention to Detail", "Business Acumen", "Stakeholder Management"]
+                    },
+                    {
+                        heading: "Industry Exposure",
+                        tags: ["CAPEX & OPEX", "Pharma & Life Science", "Oil & Gas", "Green Energy", "Green Steel", "IT- Digital Transformation"]
+                    }
+                ]
+            };
+
+            const contactData = {
+        // Main contact section
+        mainSection: {
+            description: "Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+            contactCards: [
+                { icon: "📧", label: "Email", value: "sanazraja@gmail.com", link: "mailto:sanazraja@gmail.com" },
+                { icon: "📍", label: "Location", value: "Sweden, Europe", link: null },
+                { icon: "🔗", label: "LinkedIn", value: "linkedin.com/in/sanaraja", link: "https://linkedin.com/in/sanaraja" },
+                { icon: "🐙", label: "GitHub", value: "https://github.com/sanazraja/", link: "https://github.com/sanazraja/" }
+            ]
+        },
+        // Sidebar data
+        sidebar: {
+            
+            contactItems: [
+                { icon: "📧", label: "Email", value: "sana.raja@example.com", link: "mailto:sana.raja@example.com" },
+                { icon: "📍", label: "Location", value: "Sweden", link: null }
+            ],
+            socialLinks: [
+                { url: "https://www.linkedin.com/in/sana-raja-a8239888/", icon: "💼", label: "LinkedIn" },
+                { url: "https://github.com/sanazraja/", icon: "🐙", label: "GitHub" }
+            ],
+            resumeFile: "Sana_Raja_CV.pdf"
+        }
+    };
+        const experienceData = [
+            {
+                icon: "💼",
+                title: "Reporting Leader – Data Analyst",
+                company: "IDOM Consulting | Sweden",
+                date: "Feb 2026 – Present",
+                desc: "Report Leader for €4.5B green steel megaproject. Lead end-to-end reporting, data validation, Power BI dashboards, cost trends, and governance. Transform complex datasets using Excel, Power Query, macros."
+            },
+            {
+                icon: "💼",
+                title: "Data & Business Analyst – Operations & Finance",
+                company: "Pizzabakeren Hudiksvall",
+                date: "May 2025 – Jan 2026",
+                desc: "Led data-driven decision-making by analysing sales trends, operational KPIs, and financial performance. Built dashboards and structured datasets to support forecasting, budgeting, and cost-control initiatives. Managed VAT reporting, employer declarations, and financial reconciliations with high accuracy. Transformed POS, accounting, and tax-account data into clear insights that improved profitability, efficiency, and compliance."
+            },
+            {
+                icon: "💼",
+                title: "Team Leader / Shift Manager",
+                company: "Northvolt | Sweden",
+                date: "Dec 2023 – May 2025",
+                desc: "Led a team of 40 members in a high-tech manufacturing environment, ensuring compliance with ISO 9001 quality standards and Swedish HSE regulations. Managed human resource allocation, production planning, and process optimization while driving continuous improvement and operational excellence. Created SOPs, work instructions, and operational guidelines to enhance efficiency and align with ISO 14001 environmental management principles. Conducted risk assessments, audits, and root-cause analysis; implemented 5S, Lean, and Six Sigma methodologies to improve productivity and reduce non-conformances. Led and participated in QRQC sessions to identify root causes, implement corrective actions, and prevent reoccurrence of quality issues. Collaborated cross-functionally with engineering, quality and maintenance teams to ensure sustainable performance and process reliability. Championed a culture of safety, quality awareness, and sustainability through training and daily leadership practices. Trained teams on quality procedures, audits, and corrective actions (Train-the-Trainer certified)."
+            },
+            {
+                icon: "💼",
+                title: "Team Leader",
+                company: "Randstad Sweden",
+                date: "Sep 2023 – Dec 2023",
+                desc: "Optimized production line efficiency by managing team performance, implementing dynamic rotations, and fostering collaboration and stakeholder engagement. Developed and executed resource allocation and process improvement plans to meet production and quality targets under ISO-based manufacturing standards. Ensured workplace safety and regulatory compliance through risk assessments, 5S methodology, and proactive quality and HSE monitoring."
+            },
+            {
+                icon: "💼",
+                title: "Consultant",
+                company: "Randstad Sweden",
+                date: "Jun 2023 – Sep 2023",
+                desc: "Operated and monitored machinery to ensure smooth production flow, product quality, and adherence to ISO 9001-compliant SOPs. Followed strict health, safety, and environmental (HSE) protocols to maintain a safe and sustainable workplace. Assisted in troubleshooting equipment issues and implementing corrective and preventive actions (CAPA) to reduce process variation. Supported Lean manufacturing and Six Sigma initiatives to enhance efficiency, minimize waste, and strengthen quality control. Maintained a clean and organized workspace following 5S and continuous improvement principles."
+            }
+        ];
+
+        const educationData = [
+            "Linköping University – MSc Strategy & Management",
+            "Robert Gordon University – BSc Accounting"
+        ];
+
+        const certificationsData = [
+            "WES Canada Equivalency",
+            "Creative Writing",
+            "Power BI Certified",
+            "Lean Six Sigma White Belt"
+        ];
+        const skillsData = [
+            { name: "Power BI", icon: "📊" },
+            { name: "SQL", icon: "🗄️" },
+            { name: "Python", icon: "🐍" },
+            { name: "Data Analysis", icon: "📈" },
+            { name: "Automation", icon: "⚙️" },
+            { name: "Excel", icon: "📑" },
+            { name: "Financial Modeling", icon: "💰" },
+            { name: "Lean Six Sigma", icon: "📉" }
+        ];
+            
+
+
+
+        /* =========================
+           RENDER FUNCTIONS
+        ========================= */
+        function renderSidebar() {
+       
+        // Set resume download link
+        const resumeBtn = document.getElementById("resume-btn");
+        resumeBtn.href = contactData.sidebar.resumeFile;
+        
+        // Render contact items in sidebar
+        const sidebarContactList = document.getElementById("sidebar-contact-list");
+        sidebarContactList.innerHTML = "";
+        
+        contactData.sidebar.contactItems.forEach(item => {
+            const contactItemDiv = document.createElement("div");
+            contactItemDiv.className = "contact-item";
+            
+            let valueHtml = item.value;
+            if (item.link) {
+                valueHtml = `<a href="${item.link}" class="contact-value">${item.value}</a>`;
+            } else {
+                valueHtml = `<span class="contact-value">${item.value}</span>`;
+            }
+            
+            contactItemDiv.innerHTML = `
+                <div class="icon-box">${item.icon}</div>
+                <div class="contact-info">
+                    <span class="contact-label">${item.label}</span>
+                    ${valueHtml}
+                </div>
+            `;
+            sidebarContactList.appendChild(contactItemDiv);
+        });
+        
+        // Render social links
+        const socialLinksContainer = document.getElementById("social-links-container");
+        socialLinksContainer.innerHTML = "";
+        
+        contactData.sidebar.socialLinks.forEach(link => {
+            const anchor = document.createElement("a");
+            anchor.href = link.url;
+            anchor.target = "_blank";
+            anchor.rel = "noopener noreferrer";
+            anchor.setAttribute("aria-label", link.label);
+            anchor.innerHTML = link.icon;
+            socialLinksContainer.appendChild(anchor);
+        });
+    }
+
+
+
+        function renderAboutSection() {
+            // Set description text
+            document.getElementById("about-text").innerText = aboutData.description;
+
+            // Render stats
+            const statsContainer = document.getElementById("stats-container");
+            statsContainer.innerHTML = "";
+            aboutData.stats.forEach(stat => {
+                const statBox = document.createElement("div");
+                statBox.className = "stat-box";
+                statBox.innerHTML = `
+                    <div class="stat-info">
+                        <div class="number">${stat.number}</div>
+                        <div class="label">${stat.label}</div>
+                    </div>
+                `;
+                statsContainer.appendChild(statBox);
+            });
+
+            // Render all skill sections
+            const skillsContainer = document.getElementById("skills-container");
+            skillsContainer.innerHTML = "";
+            aboutData.skillSections.forEach(section => {
+                // Heading
+                const heading = document.createElement("h3");
+                heading.className = "skills-heading";
+                heading.innerText = section.heading;
+                skillsContainer.appendChild(heading);
+
+                // Skill tags container
+                const tagsDiv = document.createElement("div");
+                tagsDiv.className = "skill-tags";
+
+                // Check if section has tagsWithIcons (for Key Skills) or regular tags
+                if (section.tagsWithIcons) {
+                    section.tagsWithIcons.forEach(tag => {
+                        const tagSpan = document.createElement("span");
+                        tagSpan.className = "skill-tag";
+                        tagSpan.innerHTML = `<img src="${tag.icon}" alt="${tag.name}" class="skill-icon">${tag.name}`;
+                        tagsDiv.appendChild(tagSpan);
+                    });
+                } else if (section.tags) {
+                    section.tags.forEach(tag => {
+                        const tagSpan = document.createElement("span");
+                        tagSpan.className = "skill-tag";
+                        tagSpan.innerText = tag;
+                        tagsDiv.appendChild(tagSpan);
+                    });
+                }
+                skillsContainer.appendChild(tagsDiv);
+            });
+        }
+
+        function renderExperience() {
+            const container = document.querySelector("#experience .timeline");
+            container.innerHTML = "";
+
+            experienceData.forEach(item => {
+                const el = document.createElement("div");
+                el.className = "entry";
+
+                el.innerHTML = `
+            <div class="timeline-icon">${item.icon}</div>
+
+            <div class="entry-header">
+                <div>
+                    <h3 class="entry-title">${item.title}</h3>
+                    <div class="entry-company">${item.company}</div>
+                </div>
+                <div class="entry-date">${item.date}</div>
+            </div>
+
+            <div class="entry-desc">
+                <p>${item.desc}</p>
+            </div>
+        `;
+                container.appendChild(el);
+            });
+        }
+
+        function renderEducation() {
+            const container = document.querySelector("#education .skill-tags");
+            container.innerHTML = educationData.map(i => `<span class="skill-tag">${i}</span>`).join("");
+        }
+
+        function renderCertifications() {
+            const container = document.querySelector("#certifications .skill-tags");
+            container.innerHTML = certificationsData.map(i => `<span class="skill-tag">${i}</span>`).join("");
+        }
+
+
+        function renderSkills() {
+            const container = document.querySelector("#skills .skill-tags");
+
+            container.innerHTML = skillsData.map(skill => `
+                <div class="skill-tag">
+                    <span class="skill-icon">${skill.icon}</span>
+                    ${skill.name}
+                </div>
+            `).join("");
+        }
+
+        function renderContactSection() {
+        // Set description
+        document.getElementById("contact-description").innerText = contactData.mainSection.description;
+
+        // Render contact cards
+        const cardsContainer = document.getElementById("contact-cards-container");
+        cardsContainer.innerHTML = "";
+        
+        contactData.mainSection.contactCards.forEach(card => {
+            const cardDiv = document.createElement("div");
+            cardDiv.className = "contact-card";
+            
+            let valueHtml = card.value;
+            if (card.link) {
+                valueHtml = `<a href="${card.link}" target="_blank" style="text-decoration:none; color:inherit;">${card.value}</a>`;
+            }
+            
+            cardDiv.innerHTML = `
+                <div class="icon-box-large">${card.icon}</div>
+                <div>
+                    <span class="contact-card-label">${card.label}</span>
+                    <div>${valueHtml}</div>
+                </div>
+            `;
+            cardsContainer.appendChild(cardDiv);
+        });
+    }
+
+   
+    
+        /* =========================
+           INIT
+        ========================= */
+
+        window.onload = () => {
+            renderSidebar();
+            renderAboutSection();
+            renderExperience();
+            renderEducation();
+            renderCertifications();
+            renderSkills();
+            renderContactSection();
+
+        };
+    </script>
+
+</head>
+
+<body>
+    <div id="fullscreen-viewer"
+        style="display:none; position:fixed; z-index:100000; background:rgba(0,0,0,0.95); inset:0; align-items:center; justify-content:center;">
+        <button class="viewer-close" onclick="closeFullscreen()"
+            style="position:absolute; top:30px; right:40px; background:none; border:none; font-size:2rem; color:white;">✕</button>
+        <img id="fullscreen-img" style="max-width:90%; max-height:90%; border-radius:20px;">
+    </div>
+
+    <div class="container">
+        <aside id="sidebar" class="glass-card">
+        <div class="avatar-container">
+            <img src="extracted_images/Sana-Raja-Profile-Pic.jpeg" id="profile-pic" alt="Profile">
+        </div>
+        <div id="name">Sana Raja</div>
+        <div id="title-badge">Data & Operations Leader</div>
+        <div class="divider"></div>
+        <div class="contact-list" id="sidebar-contact-list"></div>
+        <div class="social-links" id="social-links-container"></div>
+        <a href="#" id="resume-btn" download>Download CV</a>
+    </aside>
+
+
+        <main id="main-content" class="glass-card">
+            <nav class="navbar">
+                <button class="nav-btn active-tab" onclick="showPage('about',this)">About</button>
+                <button class="nav-btn" onclick="showPage('experience',this)">Experience</button>
+                <button class="nav-btn" onclick="showPage('education',this)">Education</button>
+                <button class="nav-btn" onclick="showPage('certifications',this)">Certifications</button>
+                <button class="nav-btn" onclick="showPage('projects',this)">Projects</button>
+                <button class="nav-btn" onclick="showPage('contact',this)">Contact</button>
+            </nav>
+
+            <!-- About Section -->
+            <div id="about" class="section active">
+                <h2>About Me</h2>
+                <p id="about-text"></p>
+                <div class="stats-grid" id="stats-container"></div>
+                <div id="skills-container"></div>
+            </div>
+
+            <!-- Experience -->
+            <div id="experience" class="section">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    
+                </div>
+            </div>
+            <!-- Education (updated with green icons) -->
+            <div id="education" class="section">
+                <h2>Education</h2>
+                <div class="skill-tags"><span class="skill-tag">Linköping University – MSc Strategy &
+                        Management</span><span class="skill-tag">Robert Gordon University – BSc Accounting</span></div>
+            </div>
+            <!-- Certifications (updated with green icons) -->
+            <div id="certifications" class="section">
+                <h2>Certifications</h2>
+                <div class="skill-tags"><span class="skill-tag">WES Canada Equivalency</span><span
+                        class="skill-tag">Creative Writing</span><span class="skill-tag">Power BI Certified</span><span
+                        class="skill-tag">Lean Six Sigma White Belt</span></div>
+            </div>
+            <!-- Projects grid (updated with green icons) -->
+            <div id="projects" class="section">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-box">
+                        <div class="project-img-wrapper"><img src="extracted_images/project-1.png"
+                                class="project-thumb"></div>
+                        <div class="project-domain">📊 Data Analytics</div>
+                        <h3 class="project-title">Green Steel Reporting Suite</h3>
+                        <p class="project-short-desc">€4.5B project performance dashboards, cost control & change
+                            orders.</p>
+                        <div class="project-footer"><button class="btn-link" onclick="openModal('proj1')">See Work
+                                →</button><img src="extracted_images/image_pbi.png" class="tool-icon"></div>
+                    </div>
+                    <div class="project-box">
+                        <div class="project-img-wrapper"><img src="extracted_images/project-2.png"
+                                class="project-thumb"></div>
+                        <div class="project-domain">📈 BI & Finance</div>
+                        <h3 class="project-title">Sales & Financial BI Dashboard</h3>
+                        <p class="project-short-desc">VAT, profit margins, employer declarations & forecasting.</p>
+                        <div class="project-footer"><button class="btn-link" onclick="openModal('proj2')">See Work
+                                →</button><img src="extracted_images/image_pbi.png" class="tool-icon"></div>
+                    </div>
+                    <div class="project-box">
+                        <div class="project-img-wrapper"><img src="extracted_images/project-3.png"
+                                class="project-thumb"></div>
+                        <div class="project-domain">🏭 Lean Analytics</div>
+                        <h3 class="project-title">Manufacturing OEE & Quality Tracker</h3>
+                        <p class="project-short-desc">QRQC, Six Sigma dashboards, defect reduction & real-time OEE.</p>
+                        <div class="project-footer"><button class="btn-link" onclick="openModal('proj3')">See Work
+                                →</button><img src="extracted_images/image_pbi.png" class="tool-icon"></div>
+                    </div>
+                    <div class="project-box">
+                        <div class="project-img-wrapper"><img src="extracted_images/project-4.png"
+                                class="project-thumb"></div>
+                        <div class="project-domain">👥 Workforce Analytics</div>
+                        <h3 class="project-title">HR & Resource Planning Dashboard</h3>
+                        <p class="project-short-desc">Headcount forecasting, shift optimization & training matrix.</p>
+                        <div class="project-footer"><button class="btn-link" onclick="openModal('proj4')">See Work
+                                →</button><img src="extracted_images/image_pbi.png" class="tool-icon"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact section intact -->
+            <div id="contact" class="section">
+                <h2>Let’s Connect</h2>
+                <p id="contact-description" style="margin-bottom: 25px;"></p>
+                <div class="contact-wrapper">
+                    <div class="contact-left">
+                        <div class="contact-grid" style="display:flex; flex-direction:column; gap:18px;" id="contact-cards-container"></div>
+                    </div>
+                    <div class="contact-right">
+                        <form action="https://formsubmit.co/sana.raja@example.com" method="POST" class="contact-form-card">
+                            <div class="form-title">📬 Send a Message</div>
+                            <input type="text" name="name" class="form-input" placeholder="Your Name">
+                            <input type="email" name="email" class="form-input" placeholder="Email">
+                            <textarea name="message" class="form-input" rows="4" placeholder="Your message..."></textarea>
+                            <button type="submit" class="form-submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal structure (preserved) -->
+    <div id="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-header-title">Project</h2><button class="close-btn" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-top-grid">
+                    <div><span id="modal-primary-tag"
+                            style="background:#2ecc71; padding:4px 12px; border-radius:20px;"></span>
+                        <div id="modal-top-icon" style="margin:12px 0"></div>
+                        <h1 id="modal-title" style="font-size:1.8rem"></h1>
+                        <p id="modal-domain"></p>
+                        <p id="modal-desc"></p>
+                        <div class="tools-list" id="modal-tools-list"></div>
+                    </div>
+                    <div class="modal-image-container"><img id="modal-image"
+                            style="width:100%; border-radius:20px;"><button class="fullscreen-btn"
+                            onclick="openFullscreen(document.getElementById('modal-image').src)">⛶</button>
+                        <p id="modal-image-caption"></p>
+                    </div>
+                </div>
+                <div id="modal-details-content" style="margin-top:24px;"></div>
+                <div id="modal-carousel" class="carousel-container"><button class="carousel-btn carousel-prev"
+                        onclick="changeSlide(-1)">◀</button><img id="carousel-img"
+                        style="width:80%; border-radius:20px;"><button class="carousel-btn carousel-next"
+                        onclick="changeSlide(1)">▶</button>
+                    <p id="carousel-caption"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
