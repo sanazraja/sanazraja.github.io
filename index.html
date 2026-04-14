@@ -823,7 +823,7 @@
 
             const contactData = {
         // Main contact section
-        mainSection: {
+        contactMainSection: {
             description: "Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
             contactCards: [
                 { icon: "📧", label: "Email", value: "sanazraja@gmail.com", link: "mailto:sanazraja@gmail.com" },
@@ -836,7 +836,7 @@
         sidebar: {
             
             contactItems: [
-                { icon: "📧", label: "Email", value: "sana.raja@example.com", link: "mailto:sana.raja@example.com" },
+                { icon: "📧", label: "Email", value: "sanazraja@gmail.com", link: "mailto:sanazraja@gmail.com" },
                 { icon: "📍", label: "Location", value: "Sweden", link: null }
             ],
             socialLinks: [
@@ -1064,13 +1064,13 @@
 
         function renderContactSection() {
         // Set description
-        document.getElementById("contact-description").innerText = contactData.mainSection.description;
+        document.getElementById("contact-description").innerText = contactData.contactMainSection.description;
 
         // Render contact cards
         const cardsContainer = document.getElementById("contact-cards-container");
         cardsContainer.innerHTML = "";
         
-        contactData.mainSection.contactCards.forEach(card => {
+        contactData.contactMainSection.contactCards.forEach(card => {
             const cardDiv = document.createElement("div");
             cardDiv.className = "contact-card";
             
@@ -1102,8 +1102,8 @@
             renderExperience();
             renderEducation();
             renderCertifications();
-            renderSkills();
             renderContactSection();
+            //renderSkills();
 
         };
     </script>
@@ -1223,7 +1223,7 @@
                         <div class="contact-grid" style="display:flex; flex-direction:column; gap:18px;" id="contact-cards-container"></div>
                     </div>
                     <div class="contact-right">
-                        <form action="https://formsubmit.co/sana.raja@example.com" method="POST" class="contact-form-card">
+                        <form action="https://formsubmit.co/sanazraja@gmail.com" method="POST" class="contact-form-card">
                             <div class="form-title">📬 Send a Message</div>
                             <input type="text" name="name" class="form-input" placeholder="Your Name">
                             <input type="email" name="email" class="form-input" placeholder="Email">
