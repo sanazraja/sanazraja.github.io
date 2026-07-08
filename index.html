@@ -1,472 +1,1479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Sana Raja | Data & Operations Leader</title>
-    <!-- Google Fonts / System Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Sana Raja |  Business Analyst, KPIs Reporting Leader &amp; Data Analyst </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-          --primary:#44a27a;--primary-light:#6fd3a5;--bg:#071b14;
-          --glass:rgba(255,255,255,0.06);--glass-strong:rgba(255,255,255,0.12);
-          --border:rgba(255,255,255,0.15);--text:#eafff5;--muted:#b8e8d5;--radius:22px;--white:#fff;
+        /* ── reset & vars ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        body{font-family:'Inter',system-ui;color:var(--text);background:radial-gradient(circle at 10% 20%,#0d2e23,transparent),radial-gradient(circle at 90% 0%,#134a36,transparent),var(--bg);padding:20px;min-height:100vh}
-        
-        /* SKELETON */
-        @keyframes shimmer{0%{background-position:-600px 0}100%{background-position:600px 0}}
-        .skel{border-radius:8px;background:linear-gradient(90deg,rgba(255,255,255,0.05) 25%,rgba(255,255,255,0.12) 50%,rgba(255,255,255,0.05) 75%);background-size:600px 100%;animation:shimmer 1.4s infinite linear}
-        .skel-circle{border-radius:50%}
-        .skel-text{height:14px;margin-bottom:10px}
-        .skel-title{height:20px;width:60%;margin-bottom:12px}
-        .skel-btn{height:36px;border-radius:40px}
-        .skel-avatar{width:130px;height:130px}
-        .skel-badge{height:28px;width:160px;border-radius:10px}
-        .skel-stat{height:70px;border-radius:18px;flex:1;min-width:120px}
-        .skel-tag{height:36px;width:110px;border-radius:10px;display:inline-block;margin:4px}
-        .skel-card{height:200px;border-radius:18px;margin-bottom:18px}
-        .skel-entry{height:120px;border-radius:18px;margin-bottom:20px}
-        
-        /* FADE IN */
-        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .fade-in{animation:fadeUp .5s ease forwards}
-        .fade-in-d1{animation-delay:.1s;opacity:0}
-        .fade-in-d2{animation-delay:.2s;opacity:0}
-        .fade-in-d3{animation-delay:.3s;opacity:0}
-        .fade-in-d4{animation-delay:.4s;opacity:0}
-        
-        /* CONTAINER */
-        .container{max-width:1300px;margin:auto;display:flex;gap:24px;align-items:flex-start}
-        .glass{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 10px 40px rgba(0,0,0,.35)}
-        .glass-card{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 10px 40px rgba(0,0,0,.35)}
-        
-        /* SIDEBAR */
-        #sidebar{width:300px;padding:26px 22px;position:sticky;top:20px;display:flex;flex-direction:column;align-items:center}
-        .avatar-wrap{position:relative;margin-bottom:16px}
-        .avatar-ring{width:138px;height:138px;border-radius:50%;padding:4px;background:conic-gradient(var(--primary),var(--primary-light),var(--primary));}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        .avatar-inner{width:130px;height:130px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;position:absolute;top:4px;left:4px}
-        #profile-pic{width:126px;height:126px;border-radius:50%;object-fit:cover;display:block}
-        #name{font-size:1.5rem;font-weight:600;margin-bottom:8px;text-align:center;background:linear-gradient(45deg,#fff,var(--primary));-webkit-background-clip:text;color:transparent}
-        #title-badge{background:rgba(255,255,255,.06);padding:5px 14px;border-radius:10px;font-size:.72rem;margin-bottom:18px;color:var(--muted)}
-        .divider{width:100%;height:1px;background:var(--border);margin:16px 0}
-        .contact-list{width:100%;display:flex;flex-direction:column;gap:14px}
-        .contact-item{display:flex;gap:12px;align-items:center;cursor:default}
-        .icon-box{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:.3s;flex-shrink:0}
-        .contact-item:hover .icon-box{background:var(--primary);color:#05231a;transform:scale(1.1)}
-        .contact-label{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-        .contact-value{color:var(--muted);font-size:.85rem;text-decoration:none}
-        .contact-info{display:flex;flex-direction:column;gap:3px;align-items: flex-start;}
-        .social-links{margin:18px 0;display:flex;gap:12px}
-        .social-links a{font-size:1.15rem;opacity:.7;transition:.3s;color:var(--muted);text-decoration:none}
-        .social-links a:hover{opacity:1;transform:translateY(-3px)}
-        #resume-btn{width:100%;display:block;text-align:center;padding:11px;border-radius:12px;background:linear-gradient(45deg,var(--primary),var(--primary-light));color:#05231a;font-weight:700;text-decoration:none;transition:.3s;font-size:1rem;position:relative;overflow:hidden}
-        #resume-btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:.4s}
-        #resume-btn:hover::after{transform:translateX(100%)}
-        #resume-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(68,162,122,.4)}
-        
-        /* MAIN */
-        #main-content{flex:1;padding:28px;min-width:0}
-        .navbar{display:flex;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto;padding-bottom:0;column-gap: 8px;row-gap: 8px;flex-wrap: wrap; position: sticky;top: 0; z-index: 9; background: rgb(14 46 34 / 99%); border-radius: 6px;}
-        .nav-btn{background:none;border:none;color:var(---white);font-size:1rem;cursor:pointer;padding:10px 14px;border-radius:8px 8px 0 0;transition:.25s;white-space:nowrap;position:relative}
-        .nav-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--primary);transform:scaleX(0);transition:.25s}
-        .nav-btn:hover{color:#fff;background:rgba(255,255,255,.04)}
-        .nav-btn.active-tab{color:#fff}
-        .nav-btn.active-tab::after{transform:scaleX(1)}
-        .section{display:none}
-        .section.active{display:block}
-        
-        h2{font-size:1.8rem;margin-bottom:14px;background:linear-gradient(45deg,#fff,var(--primary));-webkit-background-clip:text;color:transparent;display:inline-block}
-        
-        /* STATS */
-        .stats-grid{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap}
-        .stat-box{flex:1;min-width:130px;padding:16px;border-radius:18px;background:var(--glass-strong);border:1px solid var(--border);transition:.3s;cursor:default}
-        .stat-box:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 12px 30px rgba(68,162,122,.2)}
-        .stat-box .number{font-size:1.5rem;color:var(--primary);font-weight:700}
-        .stat-box .label{font-size:.75rem;color:var(--white);margin-top:4px}
-        
-        /* SKILLS */
-        .skills-heading{margin:24px 0 10px;font-size:1.05rem;color:var(--white);font-weight:600}
-        .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
-        .skill-tag{display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;background:var(--glass);border:1px solid var(--border);font-size:.78rem;transition:.3s;cursor:default}
-        .skill-tag:hover{border-color:var(--primary);transform:translateY(-2px);background:rgba(68,162,122,.08)}
-        .skill-icon{width:16px;height:16px;object-fit:contain}
-        
-        /* TIMELINE */
-        .timeline{position:relative;padding-left:56px;margin-top:20px}
-        .timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary),transparent)}
-        .entry{position:relative;background:var(--glass);padding:20px;border-radius:18px;margin-bottom:22px;border:1px solid var(--border);transition:.35s;cursor:default}
-        .entry:hover{transform:translateX(6px);border-color:var(--primary);box-shadow:0 8px 30px rgba(68,162,122,.15)}
-        .timeline-icon{position:absolute;left:-56px;top:18px;width:38px;height:38px;border-radius:50%;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:.3s}
-        .entry:hover .timeline-icon{background:var(--primary);color:#05231a;transform:scale(1.1)}
-        .entry-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
-        .entry-title{font-size:1.05rem;font-weight:600}
-        .entry-company{font-size:.88rem;background:linear-gradient(45deg,#fff,var(--primary));-webkit-background-clip:text;color:transparentmargin-top:3px}
-        .entry-date{background:rgba(68,162,122,.12);border:1px solid rgba(68,162,122,.3);padding:5px 11px;border-radius:20px;font-size:.72rem;color:var(--primary);white-space:nowrap}
-        .entry-desc{font-size:.83rem;color:var(--white);line-height:1.6;margin-top:10px;display:none}
-        .entry.expanded .entry-desc{display:block}
-        .expand-btn{background:none;border:none;color:var(--primary);font-size:.75rem;cursor:pointer;margin-top:8px;padding:4px 0;transition:.2s;display:flex;align-items:center;gap:4px}
-        .expand-chevron{display:inline-block;transition:transform .3s}
-        .entry.expanded .expand-chevron{transform:rotate(180deg)}
-        
-        /* PROJECTS */
-        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-        .project-box{background:var(--glass);padding:0;border-radius:18px;border:1px solid var(--border);transition:.35s;overflow:hidden;cursor:pointer}
-        .project-box:hover{transform:translateY(-8px);border-color:var(--primary);box-shadow:0 16px 40px rgba(68,162,122,.2)}
-        .project-thumb{width:100%;height:150px;object-fit:cover;display:block}
-        .project-body{padding:14px}
-        .project-domain{font-size:.72rem;color:var(--primary);margin-bottom:4px}
-        .project-title{font-size:.95rem;font-weight:600;margin-bottom:6px}
-        .project-short-desc{font-size:.78rem;color:var(--white);line-height:1.5}
-        .project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-        .btn-link{background:none;border:none;color:var(--primary);font-size:.8rem;cursor:pointer;font-weight:600;transition:.2s}
-        .btn-link:hover{opacity:.7}
-        .tool-icon{width:22px;height:22px;object-fit:contain;opacity:.8}
-        
-        /* CONTACT */
-        .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-        .contact-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:var(--glass);border:1px solid var(--border);transition:.25s;text-decoration:none;color:inherit}
-        .contact-card:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 10px 25px rgba(0,0,0,.25)}
-        .icon-box-large{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;transition:.3s}
-        .contact-card:hover .icon-box-large{background:var(--primary);color:#05231a}
-        .contact-form-card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:18px}
-        .form-title{font-weight:600;margin-bottom:14px;font-size:.95rem}
-        .form-input{width:100%;margin-bottom:10px;padding:11px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,.3);color:#fff;font-size:.85rem;font-family:inherit;transition:.3s;outline:none}
-        .form-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(68,162,122,.15)}
-        .form-submit-btn{width:100%;padding:11px;border-radius:30px;border:none;background:linear-gradient(45deg,var(--primary),var(--primary-light));color:#05231a;font-weight:700;cursor:pointer;transition:.3s;font-size:1rem;position:relative;overflow:hidden}
-        .form-submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(68,162,122,.4)}
-        
-        /* PULSE DOT */
-        .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block;animation:pulse 2s infinite;margin-right:6px}
-        @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
-        
-        /* MODAL (fixed duplicate issue) */
-        #project-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;z-index:9999}
-        #project-modal.open{display:flex}
-        .modal-content{width:90%;max-width:1100px;background:#0c2a1f;border:1px solid var(--border);border-radius:28px;padding:28px;max-height:90vh;overflow-y:auto;animation:fadeUp .3s ease}
-        .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:12px}
-        .close-btn{background:rgba(255,255,255,.08);border:1px solid var(--border);color:#fff;font-size:1.1rem;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s}
-        .close-btn:hover{background:var(--primary);color:#05231a;transform:rotate(90deg)}
-        .modal-top-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:24px}
-        .modal-image-container{position:relative}
-        .modal-image-container img{width:100%;border-radius:20px;border:1px solid var(--border);max-height:300px;object-fit:cover}
-        .fullscreen-btn{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.6);border:none;color:white;font-size:1.2rem;width:36px;height:36px;border-radius:50%;cursor:pointer;backdrop-filter:blur(4px);transition:.2s}
-        .fullscreen-btn:hover{background:var(--primary);color:#05231a}
-        .tools-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-        .tool-badge{background:var(--glass-strong);padding:6px 12px;border-radius:30px;font-size:.75rem;border:1px solid var(--border)}
-        .carousel-container{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap}
-        .carousel-btn{background:var(--glass);border:1px solid var(--border);color:var(--text);font-size:1.4rem;padding:8px 14px;border-radius:50%;cursor:pointer;transition:.2s;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
-        .carousel-btn:hover{background:var(--primary);color:#05231a;transform:scale(1.05)}
-        #carousel-img{max-width:70%;border-radius:18px;border:1px solid var(--border);max-height:200px;object-fit:cover}
-        #carousel-caption{width:100%;text-align:center;font-size:.8rem;color:var(--muted);margin-top:8px}
-        @media(max-width:860px){.container{flex-direction:column}#sidebar{width:100%;position:static}.contact-wrapper{grid-template-columns:1fr}.modal-top-grid{grid-template-columns:1fr}}
+        :root {
+            --primary: #44a27a;
+            --primary-light: #6fd3a5;
+            --bg: #071b14;
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-strong: rgba(255, 255, 255, 0.12);
+            --border: rgba(255, 255, 255, 0.15);
+            --text: #eafff5;
+            --muted: #b8e8d5;
+            --radius: 22px;
+            --white: #fff;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at 10% 20%, #0d2e23, transparent),
+                radial-gradient(circle at 90% 0%, #134a36, transparent),
+                var(--bg);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* ── skeleton ── */
+        @keyframes shimmer {
+            0% {
+                background-position: -600px 0;
+            }
+            100% {
+                background-position: 600px 0;
+            }
+        }
+        .skel {
+            border-radius: 8px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.05) 75%);
+            background-size: 600px 100%;
+            animation: shimmer 1.4s infinite linear;
+        }
+        .skel-circle {
+            border-radius: 50%;
+        }
+        .skel-text {
+            height: 14px;
+            margin-bottom: 10px;
+        }
+        .skel-title {
+            height: 20px;
+            width: 60%;
+            margin-bottom: 12px;
+        }
+        .skel-btn {
+            height: 36px;
+            border-radius: 40px;
+        }
+        .skel-avatar {
+            width: 130px;
+            height: 130px;
+        }
+        .skel-badge {
+            height: 28px;
+            width: 160px;
+            border-radius: 10px;
+        }
+        .skel-stat {
+            height: 70px;
+            border-radius: 18px;
+            flex: 1;
+            min-width: 120px;
+        }
+        .skel-tag {
+            height: 36px;
+            width: 110px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 4px;
+        }
+        .skel-card {
+            height: 200px;
+            border-radius: 18px;
+            margin-bottom: 18px;
+        }
+        .skel-entry {
+            height: 120px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* ── fade in ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeUp .5s ease forwards;
+        }
+        .fade-in-d1 {
+            animation-delay: .1s;
+            opacity: 0;
+        }
+        .fade-in-d2 {
+            animation-delay: .2s;
+            opacity: 0;
+        }
+        .fade-in-d3 {
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        .fade-in-d4 {
+            animation-delay: .4s;
+            opacity: 0;
+        }
+
+        /* ── container ── */
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+        }
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+        }
+
+        /* ── sidebar ── */
+        #sidebar {
+            width: 300px;
+            padding: 26px 22px;
+            position: sticky;
+            top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .avatar-wrap {
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .avatar-ring {
+            width: 138px;
+            height: 138px;
+            border-radius: 50%;
+            padding: 4px;
+            background: conic-gradient(var(--primary), var(--primary-light), var(--primary));
+        }
+        .avatar-inner {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+        }
+        #profile-pic {
+            width: 126px;
+            height: 126px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+        #name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+            background: linear-gradient(45deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        #title-badge {
+            background: rgba(255, 255, 255, .06);
+            padding: 5px 14px;
+            border-radius: 10px;
+            font-size: .72rem;
+            margin-bottom: 18px;
+            color: var(--muted);
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 16px 0;
+        }
+        .contact-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            cursor: default;
+        }
+        .icon-box {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            transition: .3s;
+            flex-shrink: 0;
+        }
+        .contact-item:hover .icon-box {
+            background: var(--primary);
+            color: #05231a;
+            transform: scale(1.1);
+        }
+        .contact-label {
+            font-size: .62rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+        .contact-value {
+            color: var(--muted);
+            font-size: .85rem;
+            text-decoration: none;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            align-items: flex-start;
+        }
+        .social-links {
+            margin: 18px 0;
+            display: flex;
+            gap: 12px;
+        }
+        .social-links a {
+            font-size: 1.15rem;
+            opacity: .7;
+            transition: .3s;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+        #resume-btn {
+            width: 100%;
+            display: block;
+            text-align: center;
+            padding: 11px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            color: #05231a;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        #resume-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, .15);
+            transform: translateX(-100%);
+            transition: .4s;
+        }
+        #resume-btn:hover::after {
+            transform: translateX(100%);
+        }
+        #resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(68, 162, 122, .4);
+        }
+
+        /* ── main ── */
+        #main-content {
+            flex: 1;
+            padding: 28px;
+            min-width: 0;
+        }
+        .navbar {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 0;
+            column-gap: 8px;
+            row-gap: 8px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 9;
+            background: rgb(14 46 34 / 99%);
+            border-radius: 6px;
+            padding: 4px 4px 0 4px;
+        }
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: .9rem;
+            cursor: pointer;
+            padding: 10px 14px;
+            border-radius: 8px 8px 0 0;
+            transition: .25s;
+            white-space: nowrap;
+            position: relative;
+        }
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: .25s;
+        }
+        .nav-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, .04);
+        }
+        .nav-btn.active-tab {
+            color: #fff;
+        }
+        .nav-btn.active-tab::after {
+            transform: scaleX(1);
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            background: linear-gradient(45deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* ── stats ── */
+        .stats-grid {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            flex: 1;
+            min-width: 130px;
+            padding: 16px;
+            border-radius: 18px;
+            background: var(--glass-strong);
+            border: 1px solid var(--border);
+            transition: .3s;
+            cursor: default;
+        }
+        .stat-box:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(68, 162, 122, .2);
+        }
+        .stat-box .number {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .stat-box .label {
+            font-size: .75rem;
+            color: var(--white);
+            margin-top: 4px;
+        }
+
+        /* ── skills ── */
+        .skills-heading {
+            margin: 24px 0 10px;
+            font-size: 1.05rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            font-size: .78rem;
+            transition: .3s;
+            cursor: default;
+        }
+        .skill-tag:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            background: rgba(68, 162, 122, .08);
+        }
+        .skill-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+
+        /* ── timeline ── */
+        .timeline {
+            position: relative;
+            padding-left: 56px;
+            margin-top: 20px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+        }
+        .entry {
+            position: relative;
+            background: var(--glass);
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 22px;
+            border: 1px solid var(--border);
+            transition: .35s;
+            cursor: default;
+        }
+        .entry:hover {
+            transform: translateX(6px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 30px rgba(68, 162, 122, .15);
+        }
+        .timeline-icon {
+            position: absolute;
+            left: -56px;
+            top: 18px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: .3s;
+        }
+        .entry:hover .timeline-icon {
+            background: var(--primary);
+            color: #05231a;
+            transform: scale(1.1);
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .entry-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .entry-company {
+            font-size: .88rem;
+            background: linear-gradient(45deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-top: 3px;
+        }
+        .entry-date {
+            background: rgba(68, 162, 122, .12);
+            border: 1px solid rgba(68, 162, 122, .3);
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: .72rem;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        .entry-desc {
+            font-size: .83rem;
+            color: var(--white);
+            line-height: 1.6;
+            margin-top: 10px;
+            display: none;
+        }
+        .entry-desc ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        .entry-desc li {
+            margin-bottom: 6px;
+            list-style-type: disc;
+        }
+        .entry.expanded .entry-desc {
+            display: block;
+        }
+        .expand-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: .75rem;
+            cursor: pointer;
+            margin-top: 8px;
+            padding: 4px 0;
+            transition: .2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .expand-chevron {
+            display: inline-block;
+            transition: transform .3s;
+        }
+        .entry.expanded .expand-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* ── projects ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .project-box {
+            background: var(--glass);
+            padding: 0;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            transition: .35s;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .project-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 16px 40px rgba(68, 162, 122, .2);
+        }
+        .project-thumb {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .project-body {
+            padding: 14px;
+        }
+        .project-domain {
+            font-size: .72rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .project-title {
+            font-size: .95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .project-short-desc {
+            font-size: .78rem;
+            color: var(--white);
+            line-height: 1.5;
+        }
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .btn-link {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: .8rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: .2s;
+        }
+        .btn-link:hover {
+            opacity: .7;
+        }
+        .tool-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            opacity: .8;
+        }
+
+        /* ── contact ── */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            border-radius: 16px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            transition: .25s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+        }
+        .icon-box-large {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            transition: .3s;
+        }
+        .contact-card:hover .icon-box-large {
+            background: var(--primary);
+            color: #05231a;
+        }
+        .contact-form-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 18px;
+        }
+        .form-title {
+            font-weight: 600;
+            margin-bottom: 14px;
+            font-size: .95rem;
+        }
+        .form-input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 11px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, .3);
+            color: #fff;
+            font-size: .85rem;
+            font-family: inherit;
+            transition: .3s;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(68, 162, 122, .15);
+        }
+        .form-submit-btn {
+            width: 100%;
+            padding: 11px;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            color: #05231a;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(68, 162, 122, .4);
+        }
+
+        /* ── pulse dot ── */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: inline-block;
+            animation: pulse 2s infinite;
+            margin-right: 6px;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.4);
+                opacity: .6;
+            }
+        }
+
+        /* ── modal ── */
+        #project-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .92);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #project-modal.open {
+            display: flex;
+        }
+        .modal-content {
+            width: 90%;
+            max-width: 1100px;
+            background: #0c2a1f;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 28px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: fadeUp .3s ease;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        .close-btn {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 1.1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .25s;
+        }
+        .close-btn:hover {
+            background: var(--primary);
+            color: #05231a;
+            transform: rotate(90deg);
+        }
+        .modal-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 24px;
+        }
+        .modal-image-container {
+            position: relative;
+        }
+        .modal-image-container img {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            max-height: 300px;
+            object-fit: cover;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: .2s;
+        }
+        .fullscreen-btn:hover {
+            background: var(--primary);
+            color: #05231a;
+        }
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        .tool-badge {
+            background: var(--glass-strong);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: .75rem;
+            border: 1px solid var(--border);
+        }
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .carousel-btn {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.4rem;
+            padding: 8px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: .2s;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: #05231a;
+            transform: scale(1.05);
+        }
+        #carousel-img {
+            max-width: 70%;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            max-height: 200px;
+            object-fit: cover;
+        }
+        #carousel-caption {
+            width: 100%;
+            text-align: center;
+            font-size: .8rem;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+        @media(max-width:860px) {
+            .container {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                position: static;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .modal-top-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
 
-<aside id="sidebar" class="glass-card">
-  <div class="avatar-wrap">
-    <div class="avatar-ring" id="avatar-skeleton-ring">
-      <div class="avatar-inner">
-        <div class="skel skel-circle" style="width:126px;height:126px" id="avatar-skel"></div>
-      </div>
+        <!-- ─── SIDEBAR ─── -->
+        <aside id="sidebar" class="glass-card">
+            <div class="avatar-wrap">
+                <div class="avatar-ring" id="avatar-skeleton-ring">
+                    <div class="avatar-inner">
+                        <div class="skel skel-circle" style="width:126px;height:126px" id="avatar-skel"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skel skel-title" style="width:140px;height:24px;margin-bottom:10px" id="name-skel"></div>
+            <div class="skel skel-badge" id="badge-skel"></div>
+            <div class="divider"></div>
+            <div class="contact-list" id="sidebar-contact-list">
+                <div class="skel skel-card" style="height:50px;border-radius:12px"></div>
+                <div class="skel skel-card" style="height:50px;border-radius:12px"></div>
+            </div>
+            <div style="display:flex;gap:10px;margin:18px 0">
+                <div class="skel" style="width:36px;height:36px;border-radius:50%"></div>
+                <div class="skel" style="width:36px;height:36px;border-radius:50%"></div>
+            </div>
+            <div class="skel skel-btn" style="width:100%;height:44px"></div>
+
+            <div id="sidebar-real" style="display:none;width:100%;text-align:center">
+                <div id="name">Sana Raja</div>
+                <div id="title-badge"><span class="pulse-dot"></span>Business Analyst &amp; Data Leader</div>
+                <div class="divider"></div>
+                <div class="contact-list" id="sidebar-contacts-rendered"></div>
+                <div class="social-links" id="social-links-container" style="justify-content:center"></div>
+                <a href="Sana_Raja_CV.pdf" id="resume-btn" download="Sana_Raja_CV.pdf">⬇ Download CV</a>
+            </div>
+        </aside>
+
+        <!-- ─── MAIN ─── -->
+        <main id="main-content" class="glass-card">
+            <nav class="navbar glass-card">
+                <button class="nav-btn active-tab" data-page="about">About</button>
+                <button class="nav-btn" data-page="experience">Experience</button>
+                <button class="nav-btn" data-page="education">Education</button>
+                <button class="nav-btn" data-page="certifications">Certifications</button>
+                <button class="nav-btn" data-page="projects">Projects</button>
+                <button class="nav-btn" data-page="contact">Contact</button>
+            </nav>
+
+            <!-- about skeleton -->
+            <div id="about-skeleton">
+                <div class="skel skel-title" style="width:180px;height:32px;margin-bottom:16px"></div>
+                <div class="skel skel-text" style="width:100%"></div>
+                <div class="skel skel-text" style="width:90%"></div>
+                <div class="skel skel-text" style="width:75%"></div>
+                <div style="display:flex;gap:12px;margin:20px 0;flex-wrap:wrap">
+                    <div class="skel skel-stat"></div>
+                    <div class="skel skel-stat"></div>
+                    <div class="skel skel-stat"></div>
+                    <div class="skel skel-stat"></div>
+                </div>
+                <div class="skel skel-text" style="width:120px;margin-bottom:10px"></div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <div class="skel skel-tag"></div>
+                    <div class="skel skel-tag" style="width:90px"></div>
+                    <div class="skel skel-tag" style="width:130px"></div>
+                    <div class="skel skel-tag"></div>
+                    <div class="skel skel-tag" style="width:80px"></div>
+                </div>
+            </div>
+
+            <!-- sections -->
+            <div id="about" class="section"><h2 class="fade-in">About Me</h2><p id="about-text" class="fade-in fade-in-d1" style="color:var(--white);line-height:1.7;font-size:1rem"></p><div class="stats-grid fade-in fade-in-d2" id="stats-container"></div><div id="skills-container" class="fade-in fade-in-d3"></div></div>
+            <div id="experience" class="section"><h2 class="fade-in">Experience</h2><div class="timeline" id="exp-timeline"></div></div>
+            <div id="education" class="section"><h2 class="fade-in">Education</h2><div class="skill-tags fade-in fade-in-d1" id="edu-tags"></div></div>
+            <div id="certifications" class="section"><h2 class="fade-in">Certifications</h2><div class="skill-tags fade-in fade-in-d1" id="cert-tags"></div></div>
+            <div id="projects" class="section"><h2 class="fade-in">My Projects</h2><div class="projects-grid fade-in fade-in-d1" id="projects-grid"></div></div>
+            <div id="contact" class="section"><h2 class="fade-in">Let's Connect</h2><p style="color:var(--muted);margin-bottom:22px;font-size:1rem" class="fade-in fade-in-d1">Feel free to get in touch. I'm always open to discussing new projects, creative ideas or opportunities.</p><div class="contact-wrapper fade-in fade-in-d2"><div style="display:flex;flex-direction:column;gap:14px" id="contact-cards-container"></div><form action="https://formsubmit.co/sanazraja@gmail.com" method="POST" class="contact-form-card"><div class="form-title">📬 Send a Message</div><input type="text" name="name" class="form-input" placeholder="Your Name"><input type="email" name="email" class="form-input" placeholder="Email"><textarea name="message" class="form-input" rows="4" placeholder="Your message..."></textarea><button type="submit" class="form-submit-btn">Send Message</button></form></div></div>
+        </main>
     </div>
-  </div>
-  <div class="skel skel-title" style="width:140px;height:24px;margin-bottom:10px" id="name-skel"></div>
-  <div class="skel skel-badge" id="badge-skel"></div>
-  <div class="divider"></div>
-  <div class="contact-list" id="sidebar-contact-list">
-    <div class="skel skel-card" style="height:50px;border-radius:12px"></div>
-    <div class="skel skel-card" style="height:50px;border-radius:12px"></div>
-  </div>
-  <div style="display:flex;gap:10px;margin:18px 0">
-    <div class="skel" style="width:36px;height:36px;border-radius:50%"></div>
-    <div class="skel" style="width:36px;height:36px;border-radius:50%"></div>
-  </div>
-  <div class="skel skel-btn" style="width:100%;height:44px"></div>
 
-  <div id="sidebar-real" style="display:none;width:100%;text-align:center">
-    <div id="name">Sana Raja</div>
-    <div id="title-badge"><span class="pulse-dot"></span>Data & Operations Leader</div>
-    <div class="divider"></div>
-    <div class="contact-list" id="sidebar-contacts-rendered"></div>
-    <div class="social-links" id="social-links-container" style="justify-content:center"></div>
-    <a href="#" id="resume-btn" download>⬇ Download CV</a>
-  </div>
-</aside>
-
-<main id="main-content" class="glass-card">
-  <nav class="navbar glass-card ">
-    <button class="nav-btn active-tab" data-page="about">About</button>
-    <button class="nav-btn" data-page="experience">Experience</button>
-    <button class="nav-btn" data-page="education">Education</button>
-    <button class="nav-btn" data-page="certifications">Certifications</button>
-    <button class="nav-btn" data-page="projects">Projects</button>
-    <button class="nav-btn" data-page="contact">Contact</button>
-  </nav>
-
-  <!-- ABOUT SKELETON -->
-  <div id="about-skeleton">
-    <div class="skel skel-title" style="width:180px;height:32px;margin-bottom:16px"></div>
-    <div class="skel skel-text" style="width:100%"></div>
-    <div class="skel skel-text" style="width:90%"></div>
-    <div class="skel skel-text" style="width:75%"></div>
-    <div style="display:flex;gap:12px;margin:20px 0;flex-wrap:wrap">
-      <div class="skel skel-stat"></div><div class="skel skel-stat"></div><div class="skel skel-stat"></div><div class="skel skel-stat"></div>
+    <!-- ─── MODAL ─── -->
+    <div id="project-modal">
+        <div class="modal-content">
+            <div class="modal-header"><h2 id="modal-header-title">Project</h2><button class="close-btn" onclick="closeModal()">✕</button></div>
+            <div class="modal-body">
+                <div class="modal-top-grid">
+                    <div><span id="modal-primary-tag" style="background:#2ecc71; padding:4px 12px; border-radius:20px; display:inline-block; font-size:.75rem;"></span><div id="modal-top-icon" style="margin:12px 0"></div><h1 id="modal-title" style="font-size:1.8rem; margin:8px 0 6px"></h1><p id="modal-domain" style="color:var(--primary); font-size:1rem; margin-bottom:12px"></p><p id="modal-desc" style="color:var(--muted); line-height:1.5; font-size:.85rem"></p><div class="tools-list" id="modal-tools-list"></div></div>
+                    <div class="modal-image-container"><img id="modal-image" style="width:100%; border-radius:20px;"><button class="fullscreen-btn" onclick="openFullscreen(document.getElementById('modal-image').src)">⛶</button><p id="modal-image-caption" style="margin-top:8px; font-size:.7rem; color:var(--muted); text-align:center"></p></div>
+                </div>
+                <div id="modal-details-content" style="margin-top:24px;"></div>
+                <div id="modal-carousel" class="carousel-container"><button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">◀</button><img id="carousel-img" style="width:60%; border-radius:20px;"><button class="carousel-btn carousel-next" onclick="changeSlide(1)">▶</button><p id="carousel-caption"></p></div>
+            </div>
+        </div>
     </div>
-    <div class="skel skel-text" style="width:120px;margin-bottom:10px"></div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px">
-      <div class="skel skel-tag"></div><div class="skel skel-tag" style="width:90px"></div>
-      <div class="skel skel-tag" style="width:130px"></div><div class="skel skel-tag"></div>
-      <div class="skel skel-tag" style="width:80px"></div>
-    </div>
-  </div>
 
-  <div id="about" class="section"><h2 class="fade-in">About Me</h2><p id="about-text" class="fade-in fade-in-d1" style="color:var(--white);line-height:1.7;font-size:1rem"></p><div class="stats-grid fade-in fade-in-d2" id="stats-container"></div><div id="skills-container" class="fade-in fade-in-d3"></div></div>
-  <div id="experience" class="section"><h2 class="fade-in">Experience</h2><div class="timeline" id="exp-timeline"></div></div>
-  <div id="education" class="section"><h2 class="fade-in">Education</h2><div class="skill-tags fade-in fade-in-d1" id="edu-tags"></div></div>
-  <div id="certifications" class="section"><h2 class="fade-in">Certifications</h2><div class="skill-tags fade-in fade-in-d1" id="cert-tags"></div></div>
-  <div id="projects" class="section"><h2 class="fade-in">My Projects</h2><div class="projects-grid fade-in fade-in-d1" id="projects-grid"></div></div>
-  <div id="contact" class="section"><h2 class="fade-in">Let's Connect</h2><p style="color:var(--muted);margin-bottom:22px;font-size:1rem" class="fade-in fade-in-d1">Feel free to get in touch. I'm always open to discussing new projects, creative ideas or opportunities.</p><div class="contact-wrapper fade-in fade-in-d2"><div style="display:flex;flex-direction:column;gap:14px" id="contact-cards-container"></div><form action="https://formsubmit.co/sanazraja@gmail.com" method="POST" class="contact-form-card"><div class="form-title">📬 Send a Message</div><input type="text" name="name" class="form-input" placeholder="Your Name"><input type="email" name="email" class="form-input" placeholder="Email"><textarea name="message" class="form-input" rows="4" placeholder="Your message..."></textarea><button type="submit" class="form-submit-btn">Send Message</button></form></div></div>
-</main>
-</div>
+    <script>
+        // ─── GLOBALS ───
+        let currentCarouselImages = [];
+        let currentCarouselCaption = "";
+        let currentSlideIndex = 0;
 
-<!-- SINGLE MODAL (fixed duplicate) -->
-<div id="project-modal">
-  <div class="modal-content">
-    <div class="modal-header"><h2 id="modal-header-title">Project</h2><button class="close-btn" onclick="closeModal()">✕</button></div>
-    <div class="modal-body">
-      <div class="modal-top-grid">
-        <div><span id="modal-primary-tag" style="background:#2ecc71; padding:4px 12px; border-radius:20px; display:inline-block; font-size:.75rem;"></span><div id="modal-top-icon" style="margin:12px 0"></div><h1 id="modal-title" style="font-size:1.8rem; margin:8px 0 6px"></h1><p id="modal-domain" style="color:var(--primary); font-size:1rem; margin-bottom:12px"></p><p id="modal-desc" style="color:var(--muted); line-height:1.5; font-size:.85rem"></p><div class="tools-list" id="modal-tools-list"></div></div>
-        <div class="modal-image-container"><img id="modal-image" style="width:100%; border-radius:20px;"><button class="fullscreen-btn" onclick="openFullscreen(document.getElementById('modal-image').src)">⛶</button><p id="modal-image-caption" style="margin-top:8px; font-size:.7rem; color:var(--muted); text-align:center"></p></div>
-      </div>
-      <div id="modal-details-content" style="margin-top:24px;"></div>
-      <div id="modal-carousel" class="carousel-container"><button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">◀</button><img id="carousel-img" style="width:60%; border-radius:20px;"><button class="carousel-btn carousel-next" onclick="changeSlide(1)">▶</button><p id="carousel-caption"></p></div>
-    </div>
-  </div>
-</div>
+        function openFullscreen(imgSrc) {
+            const fullWin = window.open();
+            fullWin.document.write(
+                `<html><head><style>body{margin:0;display:flex;justify-content:center;align-items:center;background:#000;height:100vh} img{max-width:95vw;max-height:95vh;object-fit:contain}</style></head><body><img src="${imgSrc}" alt="fullscreen"></body></html>`);
+        }
 
-<script>
-// ---- FIXED GLOBALS ----
-let currentCarouselImages = [];
-let currentCarouselCaption = "";
-let currentSlideIndex = 0;
+        function changeSlide(direction) {
+            if (!currentCarouselImages.length) return;
+            currentSlideIndex = (currentSlideIndex + direction + currentCarouselImages.length) % currentCarouselImages.length;
+            const carImg = document.getElementById("carousel-img");
+            if (carImg) carImg.src = currentCarouselImages[currentSlideIndex];
+            const cap = document.getElementById("carousel-caption");
+            if (cap) cap.textContent = currentCarouselCaption + (currentCarouselImages.length > 1 ? ` (${currentSlideIndex+1}/${currentCarouselImages.length})` : "");
+        }
 
-function openFullscreen(imgSrc) {
-  const fullWin = window.open();
-  fullWin.document.write(`<html><head><style>body{margin:0;display:flex;justify-content:center;align-items:center;background:#000;height:100vh} img{max-width:95vw;max-height:95vh;object-fit:contain}</style></head><body><img src="${imgSrc}" alt="fullscreen"></body></html>`);
-}
-function changeSlide(direction) {
-  if (!currentCarouselImages.length) return;
-  currentSlideIndex = (currentSlideIndex + direction + currentCarouselImages.length) % currentCarouselImages.length;
-  const carImg = document.getElementById("carousel-img");
-  if(carImg) carImg.src = currentCarouselImages[currentSlideIndex];
-  const cap = document.getElementById("carousel-caption");
-  if(cap) cap.textContent = currentCarouselCaption + (currentCarouselImages.length > 1 ? ` (${currentSlideIndex+1}/${currentCarouselImages.length})` : "");
-}
-function closeModal(){ document.getElementById("project-modal").classList.remove("open"); }
+        function closeModal() { document.getElementById("project-modal").classList.remove("open"); }
 
-function toggleEntry(entry){
-  entry.classList.toggle("expanded");
-  const spanBtn = entry.querySelector(".expand-btn span:first-child");
-  if(spanBtn) spanBtn.textContent = entry.classList.contains("expanded") ? "Show less" : "Read more";
-}
+        function toggleEntry(entry) {
+            entry.classList.toggle("expanded");
+            const spanBtn = entry.querySelector(".expand-btn span:first-child");
+            if (spanBtn) spanBtn.textContent = entry.classList.contains("expanded") ? "Show less" : "Read more";
+        }
 
-// ---- Data (full corrected) ----
-const aboutData={
-  description:"Results-driven professional with expertise in team leadership, operations management, project coordination, financial management, quality and auditing. Adept at optimizing workflows, ensuring compliance, and driving efficiency in both manufacturing and financial environments. Seeking a challenging role that leverages these skills, offering opportunities for both personal and professional growth.",
-  stats:[{number:"14+",label:"Years Exp."},{number:"20+",label:"Dashboards"},{number:"40+",label:"Team Lead"},{number:"ISO/Lean",label:"Six Sigma"}],
-  skillSections:[
-    {heading:"Top Skills",tags:["Power BI Developer","Project Management","Finance & Audit","Team Leadership","Data Analyst","Change Management","Budgeting"]},
-    // {heading:"Tools Expertise",tagsWithIcons:[
-    //     {name:"Azure",icon:"https://img.icons8.com/color/48/azure-1.png"},{name:"Fabric",icon:"https://img.icons8.com/color/48/microsoft.png"},{name:"SSMS",icon:"https://img.icons8.com/color/48/sql.png"},{name:"MySQL",icon:"https://img.icons8.com/color/48/mysql-logo.png"},{name:"Jupyter",icon:"https://img.icons8.com/color/48/jupyter.png"},{name:"Power Automate",icon:"https://img.icons8.com/color/48/automate.png"},{name:"Power BI",icon:"https://img.icons8.com/color/48/power-bi.png"},{name:"Jira",icon:"https://img.icons8.com/color/48/jira.png"},{name:"SAP",icon:"https://img.icons8.com/color/48/sap.png"}
-    // ]},
-    {
-      heading: "Tools Expertise",
-      tagsWithIcons: [
-          { name: "Azure", icon: "extracted_images/image_azure.png" },
-          { name: "Fabric", icon: "extracted_images/image_fabric.png" },
-          { name: "SSMS", icon: "extracted_images/image_ssms.png" },
-          { name: "MySQL", icon: "extracted_images/image_mysql.png" },
-          { name: "Jupyter Notebook", icon: "extracted_images/image_jupyter.png" },
-          { name: "Power Automate", icon: "extracted_images/image_automate.png" },
-          { name: "Power BI", icon: "extracted_images/image_pbi.png" },
-          { name: "Primavera", icon: "extracted_images/image_p6.png" },
-          { name: "Hexagon Smartplant", icon: "extracted_images/image_hexagon.png" },
-          { name: "Navisworks", icon: "extracted_images/image_naviswork.png" },
-          { name: "Postman", icon: "extracted_images/image_postman.png" },
-          { name: "Jira", icon: "extracted_images/image_jira.png" },
-          { name: "SAP", icon: "extracted_images/image_sap.png" },
-          { name: "Acconex", icon: "extracted_images/image_acconex.png" }
-      ]
-    },
-       {
-                        heading: "Top Skills",
-                        tags: ["Power BI Developer", "Project Management", "Finance & Audit", "Team Leadership", "Data Analyst", "Change Management", "Budgeting"]
-                    },
-                    {
-                        heading: "Services I Offer",
-                        tags: ["Financial Accounting", "Power BI Consulting", "Lean Manufacturing"]
-                    },
-    {heading:"Data Engineering",tags:["SQL","Python","ETL","Advanced Excel – VBA","DAX","Power Query","Workflow Automation"]},
-    {heading:"Project / Workflow",tags:["Forecasting & Predictive Analysis","Data Modeling","Dashboard Development","KPI Tracking","Agile & Lean"]},
-    {heading:"Industry Exposure",tags:["CAPEX & OPEX","Pharma & Life Science","Oil & Gas","Green Energy","Green Steel"]},
-    {heading:"Soft Skills",tags:["Analytical Thinking","Problem-Solving","Attention to Detail","Business Acumen","Stakeholder Management"]}
-  ]
-};
-const contactData={sidebar:{items:[{icon:"📧",label:"Email",value:"sanazraja@gmail.com",link:"mailto:sanazraja@gmail.com"},{icon:"📍",label:"Location",value:"Sweden, Europe",link:null}],socials:[{url:"https://www.linkedin.com/in/sana-raja-a8239888/",icon:"💼",label:"LinkedIn"},{url:"https://github.com/sanazraja/",icon:"🐙",label:"GitHub"}]},cards:[{icon:"📧",label:"Email",value:"sanazraja@gmail.com",link:"mailto:sanazraja@gmail.com"},{icon:"📍",label:"Location",value:"Sweden, Europe",link:null},{icon:"🔗",label:"LinkedIn",value:"linkedin.com/in/sanaraja",link:"https://linkedin.com/in/sanaraja"},{icon:"🐙",label:"GitHub",value:"github.com/sanazraja",link:"https://github.com/sanazraja/"}]};
-const experienceData=[
-  {icon:"💼",title:"Reporting Leader – Data Analyst",company:"IDOM Consulting | Sweden",date:"Feb 2026 – Present",desc:"Report Leader for €4.5B green steel megaproject. Lead end-to-end reporting, data validation, Power BI dashboards, cost trends, and governance. Transform complex datasets using Excel, Power Query, and macros."},
-  {icon:"💼",title:"Data & Business Analyst – Operations & Finance",company:"Pizzabakeren Hudiksvall",date:"May 2025 – Jan 2026",desc:"Led data-driven decision-making by analysing sales trends, operational KPIs, and financial performance. Built dashboards and structured datasets to support forecasting, budgeting, and cost-control initiatives."},
-  {icon:"💼",title:"Team Leader / Shift Manager",company:"Northvolt | Sweden",date:"Dec 2023 – May 2025",desc:"Led a team of 40 members in a high-tech manufacturing environment, ensuring compliance with ISO 9001 quality standards and Swedish HSE regulations. Managed human resource allocation, production planning, and process optimization. Conducted risk assessments, audits, and root-cause analysis; implemented 5S, Lean, and Six Sigma methodologies."},
-  {icon:"💼",title:"Team Leader",company:"Randstad Sweden",date:"Sep 2023 – Dec 2023",desc:"Optimized production line efficiency by managing team performance, implementing dynamic rotations, and fostering collaboration. Developed and executed resource allocation and process improvement plans to meet production and quality targets."},
-  {icon:"💼",title:"Consultant",company:"Randstad Sweden",date:"Jun 2023 – Sep 2023",desc:"Operated and monitored machinery to ensure smooth production flow and product quality. Supported Lean manufacturing and Six Sigma initiatives to enhance efficiency, minimize waste, and strengthen quality control."}
-];
-const projectsData=[
-  {id:"proj1", title:"Enterprise Data Architecture & Automation", primaryTag:"Fabric Project", domain:"Data Engineering", shortDesc:"Built a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.", tools:["Microsoft Fabric","Power BI","SQL","Python","Delta Lake"], image:"extracted_images/project-1.png", bottomImages:["https://picsum.photos/id/24/400/200","https://picsum.photos/id/26/400/200"], caption:"Medallion Architecture – end-to-end data flow.", topIcon:"extracted_images/image_pbi.png", details:"<p><strong>Goal:</strong> Implement scalable, governed data architecture to replace unstable Excel reporting.</p><p><strong>Value Creation:</strong> Improved data reliability, faster refresh cycles.</p>"},
-  {id:"proj2", title:"Project Progress Dashboard", primaryTag:"PowerBI Project", domain:"Project Management", shortDesc:"Real-time project progress dashboard for construction milestones, engineering deliverables, and procurement status.", tools:["Power BI","SQL","DAX","Power Query"], image:"extracted_images/project-2.png", bottomImages:[], caption:"Unified KPI-driven dashboard displaying progress to date.", topIcon:"extracted_images/image_pbi.png", details:"<p><strong>Key Contributions:</strong> Built KPI dashboard, automated weekly reporting. Reduced manual reporting time by 50%.</p>"}
-];
+        // ─── PAGE NAV ───
+        function showPage(pageId, btnElement) {
+            document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+            document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active-tab"));
+            document.getElementById(pageId).classList.add("active");
+            if (btnElement) btnElement.classList.add("active-tab");
+        }
 
-// ---- Helper showPage ----
-function showPage(pageId, btnElement){
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active-tab"));
-  document.getElementById(pageId).classList.add("active");
-  if(btnElement) btnElement.classList.add("active-tab");
-}
+        document.querySelectorAll(".nav-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const page = btn.getAttribute("data-page");
+                if (page) showPage(page, btn);
+            });
+        });
 
-function openModal(id){
-  const p = projectsData.find(x=>x.id===id);
-  if(!p) return;
-  document.getElementById("modal-header-title").innerHTML = p.title;
-  document.getElementById("modal-primary-tag").textContent = p.primaryTag;
-  document.getElementById("modal-title").textContent = p.title;
-  document.getElementById("modal-domain").textContent = p.domain;
-  document.getElementById("modal-desc").textContent = p.shortDesc;
-  const toolsHtml = p.tools.map(t => `<span class="tool-badge">${t}</span>`).join('');
-  document.getElementById("modal-tools-list").innerHTML = toolsHtml;
-  document.getElementById("modal-image").src = p.image;
-  document.getElementById("modal-image-caption").textContent = p.caption || "Project visual";
-  document.getElementById("modal-details-content").innerHTML = p.details;
-  const topIconDiv = document.getElementById("modal-top-icon");
-  if(p.topIcon) topIconDiv.innerHTML = `<img src="${p.topIcon}" style="width:36px; height:36px; object-fit:contain;">`;
-  else topIconDiv.innerHTML = "";
-  
-  let imagesArray = p.bottomImages && p.bottomImages.length ? [...p.bottomImages] : [p.image];
-  if(p.bottomImages && p.bottomImages.length && !imagesArray.includes(p.image)) imagesArray.unshift(p.image);
-  currentCarouselImages = imagesArray;
-  currentCarouselCaption = p.caption || "";
-  currentSlideIndex = 0;
-  const carImg = document.getElementById("carousel-img");
-  if(carImg && currentCarouselImages.length) carImg.src = currentCarouselImages[0];
-  const carCap = document.getElementById("carousel-caption");
-  if(carCap) carCap.textContent = currentCarouselCaption + (currentCarouselImages.length > 1 ? " (1/"+currentCarouselImages.length+")" : "");
-  document.getElementById("project-modal").classList.add("open");
-}
-// ---- Init All ----
-function initAll(){
-  // Sidebar real content
-  const sc = document.getElementById("sidebar-contacts-rendered");
-  sc.innerHTML = '';
-  contactData.sidebar.items.forEach(item=>{
-    const div = document.createElement("div"); div.className="contact-item";
-    div.innerHTML = `<div class="icon-box">${item.icon}</div><div class="contact-info"><span class="contact-label">${item.label}</span>${item.link?`<a href="${item.link}" class="contact-value">${item.value}</a>`:`<span class="contact-value">${item.value}</span>`}</div>`;
-    sc.appendChild(div);
-  });
-  const sl = document.getElementById("social-links-container");
-  sl.innerHTML = '';
-  contactData.sidebar.socials.forEach(s=>{
-    const a = document.createElement("a"); a.href=s.url; a.target="_blank"; a.innerHTML=s.icon; a.title=s.label; sl.appendChild(a);
-  });
-  document.getElementById("resume-btn").setAttribute("href", "#"); 
-  
-  // About
-  document.getElementById("about-text").textContent = aboutData.description;
-  const sg = document.getElementById("stats-container");
-  sg.innerHTML = '';
-  aboutData.stats.forEach(s=>{const b=document.createElement("div");b.className="stat-box";b.innerHTML=`<div class="number">${s.number}</div><div class="label">${s.label}</div>`;sg.appendChild(b);});
-  const sk = document.getElementById("skills-container");
-  sk.innerHTML = '';
-  aboutData.skillSections.forEach(sec=>{
-    const h = document.createElement("h3"); h.className="skills-heading"; h.textContent = sec.heading; sk.appendChild(h);
-    const td = document.createElement("div"); td.className="skill-tags";
-    if(sec.tagsWithIcons){
-      sec.tagsWithIcons.forEach(tag=>{ const sp = document.createElement("span"); sp.className="skill-tag"; sp.innerHTML = `<img src="${tag.icon}" alt="${tag.name}" class="skill-icon"> ${tag.name}`; td.appendChild(sp);});
-    } else if(sec.tags){
-      sec.tags.forEach(t=>{ const sp = document.createElement("span"); sp.className="skill-tag"; sp.textContent = t; td.appendChild(sp);});
-    }
-    sk.appendChild(td);
-  });
-  
-  // Experience
-  const tl = document.getElementById("exp-timeline");
-  tl.innerHTML = '';
-  experienceData.forEach((item,i)=>{
-    const e = document.createElement("div"); e.className="entry fade-in"; e.style.animationDelay=(i*.1)+"s"; e.style.opacity="0";
-    e.innerHTML = `<div class="timeline-icon">${item.icon}</div><div class="entry-header"><div><div class="entry-title">${item.title}</div><div class="entry-company">${item.company}</div></div><div class="entry-date">${item.date}</div></div><div class="entry-desc"><p style="color:var(--muted);font-size:.83rem;line-height:1.6">${item.desc}</p></div><button class="expand-btn" onclick="toggleEntry(this.closest('.entry'))"><span>Read more</span><span class="expand-chevron">▾</span></button>`;
-    tl.appendChild(e);
-  });
-  
-  // Education
-  const edu = document.getElementById("edu-tags");
-  edu.innerHTML = '';
-  ["Linköping University – MSc Strategy & Management","Robert Gordon University – BSc Accounting"].forEach(t=>{const sp=document.createElement("span");sp.className="skill-tag";sp.textContent=t;edu.appendChild(sp);});
-  const cert = document.getElementById("cert-tags");
-  cert.innerHTML = '';
-  ["WES Canada Equivalency","Creative Writing","Power BI Certified","Lean Six Sigma White Belt"].forEach(t=>{const sp=document.createElement("span");sp.className="skill-tag";sp.textContent=t;cert.appendChild(sp);});
-  
-  // Projects
-  const pg = document.getElementById("projects-grid");
-  pg.innerHTML = '';
-  projectsData.forEach(p=>{
-    const b = document.createElement("div"); b.className="project-box";
-    b.innerHTML = `<div class="project-img-wrapper"><img src="${p.image}" alt="${p.title}" class="project-thumb"></div><div class="project-body"><div class="project-domain">${p.domain}</div><h3 class="project-title">${p.title}</h3><p class="project-short-desc">${p.shortDesc.substring(0,70)}...</p><div class="project-footer"><button class="btn-link" onclick="openModal('${p.id}')">See Work →</button><img src="${p.topIcon || 'https://img.icons8.com/color/48/code.png'}" class="tool-icon"></div></div>`;
-    pg.appendChild(b);
-  });
-  
-  // Contact cards
-  const cc = document.getElementById("contact-cards-container");
-  cc.innerHTML = '';
-  contactData.cards.forEach(c=>{
-    const tag = c.link ? "a" : "div";
-    const el = document.createElement(tag);
-    el.className = "contact-card";
-    if(c.link) { el.href = c.link; el.target="_blank"; }
-    el.innerHTML = `<div class="icon-box-large">${c.icon}</div><div><div style="font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">${c.label}</div><div style="font-size:.88rem">${c.value}</div></div>`;
-    cc.appendChild(el);
-  });
-  
-  // Reveal sidebar after loading skeleton
-  setTimeout(()=>{
-    const avatarSkelDiv = document.getElementById("avatar-skel");
-    if(avatarSkelDiv){
-      avatarSkelDiv.outerHTML = `<img src="extracted_images/Sana-Raja-Profile-Pic.jpeg" id="profile-pic" style="width:126px;height:126px;border-radius:50%;object-fit:cover;display:block" alt="Sana Raja">`;
-    }
-    const nameSkel = document.getElementById("name-skel"); if(nameSkel) nameSkel.remove();
-    const badgeSkel = document.getElementById("badge-skel"); if(badgeSkel) badgeSkel.remove();
-    const sr = document.getElementById("sidebar-real"); if(sr){ sr.style.display = "block"; sr.classList.add("fade-in"); }
-    document.querySelectorAll("#sidebar .skel").forEach(el=>el.remove());
-  }, 1000);
-  
-  setTimeout(()=>{
-    const aboutSkel = document.getElementById("about-skeleton");
-    if(aboutSkel) aboutSkel.remove();
-    document.getElementById("about").classList.add("active");
-  }, 800);
-}
+        function openModal(id) {
+            const p = projectsData.find(x => x.id === id);
+            if (!p) return;
+            document.getElementById("modal-header-title").innerHTML = p.title;
+            document.getElementById("modal-primary-tag").textContent = p.primaryTag;
+            document.getElementById("modal-title").textContent = p.title;
+            document.getElementById("modal-domain").textContent = p.domain;
+            document.getElementById("modal-desc").textContent = p.shortDesc;
+            document.getElementById("modal-tools-list").innerHTML = p.tools.map(t => `<span class="tool-badge">${t}</span>`).join('');
+            document.getElementById("modal-image").src = p.image;
+            document.getElementById("modal-image-caption").textContent = p.caption || "Project visual";
+            document.getElementById("modal-details-content").innerHTML = p.details;
+            const topIconDiv = document.getElementById("modal-top-icon");
+            if (p.topIcon) topIconDiv.innerHTML = `<img src="${p.topIcon}" style="width:36px;height:36px;object-fit:contain;">`;
+            else topIconDiv.innerHTML = "";
+            let imagesArray = p.bottomImages && p.bottomImages.length ? [...p.bottomImages] : [p.image];
+            if (p.bottomImages && p.bottomImages.length && !imagesArray.includes(p.image)) imagesArray.unshift(p.image);
+            currentCarouselImages = imagesArray;
+            currentCarouselCaption = p.caption || "";
+            currentSlideIndex = 0;
+            const carImg = document.getElementById("carousel-img");
+            if (carImg && currentCarouselImages.length) carImg.src = currentCarouselImages[0];
+            const carCap = document.getElementById("carousel-caption");
+            if (carCap) carCap.textContent = currentCarouselCaption + (currentCarouselImages.length > 1 ? " (1/" + currentCarouselImages
+                .length + ")" : "");
+            document.getElementById("project-modal").classList.add("open");
+        }
 
-// Attach navigation listeners
-document.querySelectorAll(".nav-btn").forEach(btn=>{
-  btn.addEventListener("click", (e)=>{
-    const page = btn.getAttribute("data-page");
-    if(page) showPage(page, btn);
-  });
-});
+        // ─── DATA (refreshed from CV with bulleted lists) ───
 
-window.addEventListener("load", initAll);
-</script>
+        const aboutData = {
+            description: "Results-driven Business Analyst with expertise in business intelligence, data analytics, financial analysis, and performance reporting across engineering, manufacturing, and business operations. Currently supporting one of Europe's largest green steel megaprojects as part of the Project Management Consultant (PMC) team, delivering data-driven insights, KPI dashboards, and business intelligence solutions that support project governance and strategic decision-making. Experienced in translating complex business and project data into actionable insights through Power BI, Advanced Excel, Power Query, and DAX. Proven ability to collaborate with multidisciplinary stakeholders across the PMC, client, and EPC contractors to gather business requirements, improve reporting processes, strengthen data quality, and optimise business performance.",
+            stats: [
+                { number: "14+", label: "Years Exp." },
+                { number: "20+", label: "Dashboards" },
+                { number: "40+", label: "Team Lead" },
+                { number: "Lean / Six Sigma", label: "Certified" }
+            ],
+            skillSections: [{
+                heading: "Core Competencies",
+                tags: [
+                    "Business Analysis",
+                    "Data Analysis & BI",
+                    "Stakeholder Management",
+                    "Requirements Gathering",
+                    "KPI Development",
+                    "Dashboard Development",
+                    "Business Process Improvement",
+                    "Financial Analysis & Reporting",
+                    "Trend & Variance Analysis",
+                    "Project Reporting",
+                    "Data Validation & QA",
+                    "Cross-functional Collaboration",
+                    "ERP Systems (SAP, D365, QuickBooks)",
+                    "Lean Six Sigma",
+                    "Root Cause Analysis"
+                ]
+            }, {
+                heading: "Tools & Technologies",
+                tagsWithIcons: [
+                    { name: "Power BI", icon: "extracted_images/image_pbi.png" },
+                    { name: "Advanced Excel", icon: "extracted_images/image_excel.png" },
+                    { name: "Power Query", icon: "extracted_images/image_powerquery.png" },
+                    { name: "DAX", icon: "extracted_images/image_dax.png" },
+                    { name: "Aconex", icon: "extracted_images/image_acconex.png" },
+                    { name: "SharePoint", icon: "extracted_images/image_sharepoint.png" },
+                    { name: "VBA", icon: "extracted_images/image_vba.png" },
+                    { name: "SAP", icon: "extracted_images/image_sap.png" },
+                    { name: "Microsoft Dynamics 365", icon: "extracted_images/image_d365.png" },
+                    { name: "QuickBooks", icon: "extracted_images/image_quickbooks.png" },
+                    { name: "Financial Modelling", icon: "extracted_images/image_finance.png" }
+                ]
+            }, {
+                heading: "Methodologies",
+                tags: [
+                    "Business Intelligence",
+                    "KPI Development",
+                    "Data Validation",
+                    "Reporting Governance",
+                    "Process Improvement",
+                    "Lean Six Sigma",
+                    "Root Cause Analysis"
+                ]
+            }, {
+                heading: "Industry Exposure",
+                tags: [
+                    "Green Steel Megaprojects",
+                    "Engineering & Construction",
+                    "Manufacturing",
+                    "Pharma & Life Science",
+                    "Oil & Gas",
+                    "Green Energy"
+                ]
+            }, {
+                heading: "Soft Skills",
+                tags: [
+                    "Analytical Thinking",
+                    "Problem-Solving",
+                    "Attention to Detail",
+                    "Business Acumen",
+                    "Stakeholder Management",
+                    "Cross-functional Collaboration"
+                ]
+            }]
+        };
+
+        const experienceData = [{
+            icon: "💼",
+            title: "Business Analyst | Report Leader | Business Intelligence",
+            company: "IDOM Consulting (PMC) – SSAB Green Steel Project (€4.5B)",
+            date: "Feb 2026 – Present",
+            bullets: [
+                "Led the end-to-end reporting lifecycle by collecting, validating, consolidating, and analysing multidisciplinary project data to deliver accurate performance insights.",
+                "Developed automated KPI dashboards and management reports using Power BI, Excel, Power Query, DAX, and VBA, improving reporting efficiency, data quality, and decision support.",
+                "Integrated and validated project data from multiple organisations, including the PMC, client (SSAB), and EPC contractors, ensuring consistent, accurate, and reliable reporting for executive decision-making.",
+                "Extracted and transformed engineering and project information from Aconex and other project systems into interactive dashboards, business intelligence reports, and performance analytics.",
+                "Performed trend, variance, cost, and progress analysis to identify project risks, monitor performance, and support proactive decision-making.",
+                "Partnered with multidisciplinary stakeholders to elicit reporting requirements, standardise reporting processes, and improve data consistency in line with project governance and client reporting standards.",
+                "Strengthened reporting governance by implementing data validation procedures, workflow standardisation, document traceability, and continuous process improvements.",
+                "Produced executive dashboards, presentations, and performance reports to monitor KPIs, milestones, risks, and project deliverables for senior leadership."
+            ]
+        }, {
+            icon: "📊",
+            title: "Data & Business Analyst – Operations & Finance",
+            company: "Pizzabakeren Hudiksvall",
+            date: "May 2025 – Jan 2026",
+            bullets: [
+                "Analysed sales performance, operational KPIs, customer trends, and financial data to support business planning and strategic decision-making.",
+                "Developed interactive dashboards and management reports using Power BI, Power Query, DAX, and Advanced Excel, transforming data from POS, accounting, and tax systems into actionable business insights.",
+                "Performed financial analysis, budgeting, forecasting, variance analysis, and profitability assessments to identify trends and cost optimisation opportunities.",
+                "Collaborated with franchise management, suppliers, accountants, and external stakeholders to gather business requirements, resolve operational issues, and improve reporting quality.",
+                "Managed VAT reporting, employer declarations, tax reconciliations, and financial compliance while ensuring reporting accuracy and adherence to Swedish regulations.",
+                "Automated reporting processes, standardised data validation, and recommended business process improvements that enhanced reporting efficiency, operational performance, and decision support."
+            ]
+        }, {
+            icon: "🏭",
+            title: "Team Leader / De facto Team Manager",
+            company: "Northvolt, Sweden",
+            date: "Dec 2023 – April 2025",
+            bullets: [
+                "Led operational and financial oversight of a high-tech manufacturing unit (40+ personnel), ensuring compliance with ISO 9001, ISO 14001, and Swedish HSE, while driving cost discipline and process efficiency.",
+                "Supported production planning, workforce cost control, and capacity utilization, aligning output with budget targets and financial forecasts.",
+                "Monitored and analyzed labor cost, overtime, scrap, rework, and productivity KPIs; performed variance analysis and led corrective actions to improve cost efficiency.",
+                "Developed and maintained SOPs, work instructions, and control documentation, strengthening internal controls and audit readiness in line with quality and environmental standards.",
+                "Conducted risk assessments, internal audits, and RCAs using Lean, Six Sigma, and 5S to reduce non-conformities, waste, and financial leakage.",
+                "Led and participated in QRQC sessions, translating deviations into financial impact and preventive control actions.",
+                "Collaborated cross-functionally with Finance, Quality, Engineering, and Maintenance to ensure reliable processes, accurate reporting, and sustainable operational performance.",
+                "Supported inventory control, material usage reviews, and variance analysis, improving working capital management and reducing write-offs.",
+                "Championed financial accountability, compliance, and continuous improvement through daily leadership, training, and performance reviews; used Train-the-Trainer certification to coach teams on audits, internal controls, corrective actions, and compliance best practices."
+            ]
+        }, {
+            icon: "👥",
+            title: "Team Leader",
+            company: "Randstad, Sweden",
+            date: "Sep 2023 – Dec 2023",
+            bullets: [
+                "Optimised production line efficiency by managing team performance, implementing dynamic rotations, and fostering collaboration.",
+                "Developed and executed resource allocation plans to meet and exceed daily production targets.",
+                "Ensured workplace safety and compliance through risk assessments, 5S methodology, and proactive quality monitoring.",
+                "Completed Train-the-Trainer training, enhancing my ability to mentor and develop teams effectively."
+            ]
+        }, {
+            icon: "⚙️",
+            title: "Operator / Manufacturing Associate",
+            company: "Randstad, Sweden",
+            date: "Jun 2023 – Sep 2023",
+            bullets: [
+                "Operated and monitored machinery to ensure smooth production flow and efficiency.",
+                "Followed Standard Operating Procedures (SOPs) to maintain high-quality and safety standards.",
+                "Assisted in troubleshooting equipment issues and optimising production processes.",
+                "Maintained a clean and organised workspace following 5S and workplace safety protocols."
+            ]
+        }, {
+            icon: "💰",
+            title: "Manager Finance",
+            company: "NUR Enterprises",
+            date: "2020 – 2021",
+            bullets: [
+                "Managed budgeting, financial reporting, and forecasting.",
+                "Oversaw prepayments, accruals, and accounts receivable aging reports.",
+                "Prepared and analysed financial statements for strategic decision-making."
+            ]
+        }, {
+            icon: "🔍",
+            title: "Manager Internal Audit",
+            company: "Fatima Memorial System",
+            date: "2015 – 2020",
+            bullets: [
+                "Conducted internal audits, risk assessments, and compliance reviews.",
+                "Redesigned internal processes to align with best practices and improve efficiency.",
+                "Investigated cases of misappropriation and fraud, strengthening internal controls and governance."
+            ]
+        }, {
+            icon: "📋",
+            title: "Assistant Manager Internal Audit",
+            company: "Fatima Memorial System",
+            date: "2013 – 2015",
+            bullets: [
+                "Audited payroll, finance, procurement, and HR functions.",
+                "Conducted stock counts and evaluated project expenses for non-profit organisations, ensuring accuracy and compliance with regulatory standards."
+            ]
+        }, {
+            icon: "📒",
+            title: "Accountant",
+            company: "Fatima Memorial System",
+            date: "2011 – 2013",
+            bullets: [
+                "Processed and scheduled payments for invoiced transactions, ensuring accuracy and timeliness.",
+                "Calculated VAT and ensured compliance with tax regulations.",
+                "Prepared financial forecasts and cash flow projections to support budgeting and planning."
+            ]
+        }];
+
+        const projectsData = [{
+            id: "proj1",
+            title: "Green Steel Megaproject – PMC Reporting & BI",
+            primaryTag: "Business Intelligence",
+            domain: "Data & Project Analytics",
+            shortDesc: "End-to-end reporting and business intelligence for a €4.5B green steel megaproject. Developed automated KPI dashboards and executive reports integrating data from PMC, client, and EPC contractors.",
+            tools: ["Power BI", "Power Query", "DAX", "Advanced Excel", "VBA", "Aconex", "SharePoint"],
+            image: "extracted_images/project-1.png",
+            bottomImages: ["extracted_images/project-1a.png", "extracted_images/project-1b.png"],
+            caption: "Executive dashboard – real-time project performance monitoring.",
+            topIcon: "extracted_images/image_pbi.png",
+            details: "<p><strong>Challenge:</strong> Multiple data sources, inconsistent reporting, manual consolidation.</p><p><strong>Solution:</strong> Built a governed data pipeline with Power BI, Power Query, and DAX; automated weekly executive reporting.</p><p><strong>Impact:</strong> Reduced reporting time by 60%, improved data accuracy, and enabled real-time decision-making for senior leadership.</p>"
+        }, {
+            id: "proj2",
+            title: "Operations & Financial Performance Dashboard",
+            primaryTag: "Performance Analytics",
+            domain: "Business Operations",
+            shortDesc: "Interactive dashboard for sales, operational KPIs, and financial performance, integrating POS, accounting, and tax data to support forecasting and cost optimisation.",
+            tools: ["Power BI", "Power Query", "DAX", "Advanced Excel"],
+            image: "extracted_images/project-2.png",
+            bottomImages: [],
+            caption: "Unified KPI dashboard – sales, costs, and profitability at a glance.",
+            topIcon: "extracted_images/image_pbi.png",
+            details: "<p><strong>Goal:</strong> Replace fragmented Excel reporting with a single source of truth for operations and finance.</p><p><strong>Outcome:</strong> Delivered automated weekly dashboards; enabled rapid variance analysis and improved cost control; reduced manual reporting effort by 50%.</p>"
+        }, {
+            id: "proj3",
+            title: "Manufacturing Excellence – Lean & Six Sigma",
+            primaryTag: "Process Improvement",
+            domain: "Manufacturing Operations",
+            shortDesc: "Led Lean, Six Sigma, and 5S initiatives in a high-tech manufacturing environment, reducing waste, improving quality, and strengthening financial accountability.",
+            tools: ["Lean", "Six Sigma", "5S", "QRQC", "RCA", "SOP Development"],
+            image: "extracted_images/project-3.png",
+            bottomImages: [],
+            caption: "Continuous improvement – waste reduction and quality control.",
+            topIcon: "extracted_images/image_lean.png",
+            details: "<p><strong>Focus:</strong> Reduce non-conformities, scrap, and financial leakage.</p><p><strong>Approach:</strong> Conducted root cause analysis, implemented 5S, and led QRQC sessions. Developed SOPs and control documentation.</p><p><strong>Results:</strong> Reduced scrap by 22%, improved audit readiness, and strengthened cost discipline across the unit.</p>"
+        }];
+
+        const contactData = {
+            sidebar: {
+                items: [
+                    { icon: "📧", label: "Email", value: "sanazraja@gmail.com", link: "mailto:sanazraja@gmail.com" },
+                    { icon: "📍", label: "Location", value: "Sweden, Europe", link: null }
+                ],
+                socials: [
+                    { url: "https://www.linkedin.com/in/sana-raja-a8239888/", icon: "💼", label: "LinkedIn" },
+                    { url: "https://github.com/sanazraja/", icon: "🐙", label: "GitHub" }
+                ]
+            },
+            cards: [
+                { icon: "📧", label: "Email", value: "sanazraja@gmail.com", link: "mailto:sanazraja@gmail.com" },
+                { icon: "📍", label: "Location", value: "Sweden, Europe", link: null },
+                { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/sanaraja", link: "https://linkedin.com/in/sanaraja" },
+                { icon: "🐙", label: "GitHub", value: "github.com/sanazraja", link: "https://github.com/sanazraja/" }
+            ]
+        };
+
+        // ─── INIT ───
+        function initAll() {
+            // Sidebar
+            const sc = document.getElementById("sidebar-contacts-rendered");
+            sc.innerHTML = '';
+            contactData.sidebar.items.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "contact-item";
+                div.innerHTML =
+                    `<div class="icon-box">${item.icon}</div><div class="contact-info"><span class="contact-label">${item.label}</span>${item.link?`<a href="${item.link}" class="contact-value">${item.value}</a>`:`<span class="contact-value">${item.value}</span>`}</div>`;
+                sc.appendChild(div);
+            });
+            const sl = document.getElementById("social-links-container");
+            sl.innerHTML = '';
+            contactData.sidebar.socials.forEach(s => {
+                const a = document.createElement("a");
+                a.href = s.url;
+                a.target = "_blank";
+                a.innerHTML = s.icon;
+                a.title = s.label;
+                sl.appendChild(a);
+            });
+            document.getElementById("resume-btn").setAttribute("href", "#");
+
+            // About
+            document.getElementById("about-text").textContent = aboutData.description;
+            const sg = document.getElementById("stats-container");
+            sg.innerHTML = '';
+            aboutData.stats.forEach(s => {
+                const b = document.createElement("div");
+                b.className = "stat-box";
+                b.innerHTML = `<div class="number">${s.number}</div><div class="label">${s.label}</div>`;
+                sg.appendChild(b);
+            });
+            const sk = document.getElementById("skills-container");
+            sk.innerHTML = '';
+            aboutData.skillSections.forEach(sec => {
+                const h = document.createElement("h3");
+                h.className = "skills-heading";
+                h.textContent = sec.heading;
+                sk.appendChild(h);
+                const td = document.createElement("div");
+                td.className = "skill-tags";
+                if (sec.tagsWithIcons) {
+                    sec.tagsWithIcons.forEach(tag => {
+                        const sp = document.createElement("span");
+                        sp.className = "skill-tag";
+                        sp.innerHTML = `<img src="${tag.icon}" alt="${tag.name}" class="skill-icon"> ${tag.name}`;
+                        td.appendChild(sp);
+                    });
+                } else if (sec.tags) {
+                    sec.tags.forEach(t => {
+                        const sp = document.createElement("span");
+                        sp.className = "skill-tag";
+                        sp.textContent = t;
+                        td.appendChild(sp);
+                    });
+                }
+                sk.appendChild(td);
+            });
+
+            // Experience – render bullet lists
+            const tl = document.getElementById("exp-timeline");
+            tl.innerHTML = '';
+            experienceData.forEach((item, i) => {
+                const e = document.createElement("div");
+                e.className = "entry fade-in";
+                e.style.animationDelay = (i * .1) + "s";
+                e.style.opacity = "0";
+                // Build bullet list
+                let bulletsHtml = '';
+                if (item.bullets && item.bullets.length) {
+                    bulletsHtml = '<ul>' + item.bullets.map(b => `<li>${b}</li>`).join('') + '</ul>';
+                }
+                e.innerHTML =
+                    `<div class="timeline-icon">${item.icon}</div><div class="entry-header"><div><div class="entry-title">${item.title}</div><div class="entry-company">${item.company}</div></div><div class="entry-date">${item.date}</div></div><div class="entry-desc">${bulletsHtml}</div><button class="expand-btn" onclick="toggleEntry(this.closest('.entry'))"><span>Read more</span><span class="expand-chevron">▾</span></button>`;
+                tl.appendChild(e);
+            });
+
+            // Education
+            const edu = document.getElementById("edu-tags");
+            edu.innerHTML = '';
+            [
+                "MSc Business Administration – Strategy & Management in International Organizations, Linköping University (2021–2023)",
+                "BSc Accounting, Robert Gordon University, UK (2021)",
+                "CIMA Advance Diploma in Management Accounting, UK (2011)"
+            ].forEach(t => {
+                const sp = document.createElement("span");
+                sp.className = "skill-tag";
+                sp.textContent = t;
+                edu.appendChild(sp);
+            });
+
+            // Certifications
+            const cert = document.getElementById("cert-tags");
+            cert.innerHTML = '';
+            [
+                "Advanced Excel",
+                "Microsoft Dynamics 365",
+                "Executive Management",
+                "CGMA/CIMA Digital Mindset",
+                "QuickBooks Certification",
+                "Digital Marketing Certification",
+                "Managers Essentials",
+                "Lean Production",
+                "Shopfloor Essentials Leadership",
+                "Quick Response Quality Control (QRQC)",
+                "Train the Trainer"
+            ].forEach(t => {
+                const sp = document.createElement("span");
+                sp.className = "skill-tag";
+                sp.textContent = t;
+                cert.appendChild(sp);
+            });
+
+            // Projects
+            const pg = document.getElementById("projects-grid");
+            pg.innerHTML = '';
+            projectsData.forEach(p => {
+                const b = document.createElement("div");
+                b.className = "project-box";
+                b.innerHTML =
+                    `<div class="project-img-wrapper"><img src="${p.image}" alt="${p.title}" class="project-thumb"></div><div class="project-body"><div class="project-domain">${p.domain}</div><h3 class="project-title">${p.title}</h3><p class="project-short-desc">${p.shortDesc.substring(0,70)}...</p><div class="project-footer"><button class="btn-link" onclick="openModal('${p.id}')">See Work →</button><img src="${p.topIcon || 'https://img.icons8.com/color/48/code.png'}" class="tool-icon"></div></div>`;
+                pg.appendChild(b);
+            });
+
+            // Contact cards
+            const cc = document.getElementById("contact-cards-container");
+            cc.innerHTML = '';
+            contactData.cards.forEach(c => {
+                const tag = c.link ? "a" : "div";
+                const el = document.createElement(tag);
+                el.className = "contact-card";
+                if (c.link) { el.href = c.link;
+                    el.target = "_blank"; }
+                el.innerHTML =
+                    `<div class="icon-box-large">${c.icon}</div><div><div style="font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">${c.label}</div><div style="font-size:.88rem">${c.value}</div></div>`;
+                cc.appendChild(el);
+            });
+
+            // Reveal sidebar after skeleton
+            setTimeout(() => {
+                const avatarSkelDiv = document.getElementById("avatar-skel");
+                if (avatarSkelDiv) {
+                    avatarSkelDiv.outerHTML =
+                        `<img src="extracted_images/Sana-Raja-Profile-Pic.jpeg" id="profile-pic" style="width:126px;height:126px;border-radius:50%;object-fit:cover;display:block" alt="Sana Raja">`;
+                }
+                const nameSkel = document.getElementById("name-skel");
+                if (nameSkel) nameSkel.remove();
+                const badgeSkel = document.getElementById("badge-skel");
+                if (badgeSkel) badgeSkel.remove();
+                const sr = document.getElementById("sidebar-real");
+                if (sr) { sr.style.display = "block";
+                    sr.classList.add("fade-in"); }
+                document.querySelectorAll("#sidebar .skel").forEach(el => el.remove());
+            }, 1000);
+
+            setTimeout(() => {
+                const aboutSkel = document.getElementById("about-skeleton");
+                if (aboutSkel) aboutSkel.remove();
+                document.getElementById("about").classList.add("active");
+            }, 800);
+        }
+
+        window.addEventListener("load", initAll);
+    </script>
 </body>
 </html>
